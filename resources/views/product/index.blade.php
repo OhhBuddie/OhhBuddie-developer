@@ -109,8 +109,7 @@
         a:hover {
             text-decoration: none;
         }
-    </style>
-    <style>
+  
         .discount {
 
             background-color: #EFC475;
@@ -135,8 +134,7 @@
             right: -20px;
             top: 0px;
         }
-    </style>
-    <style>
+  
         .section-title {
             font-size: 20px;
             font-weight: bold;
@@ -170,8 +168,7 @@
             color: white;
 
         }
-    </style>
-    <style>
+   
         /* Size chart button */
         .size-chart-button {
 
@@ -250,8 +247,7 @@
             max-height: 70vh;
             display: block;
         }
-    </style>
-    <style>
+   
         .bg-dangerr,
         .bg-success {
             color: black !important;
@@ -282,8 +278,7 @@
                 opacity: 1;
             }
         }
-    </style>
-    <style>
+   
         .carousel-container {
             width: 100%;
             max-width: 600px;
@@ -321,19 +316,19 @@
         /* Preload all images to prevent blinking */
         .carousel-slide img {
             width: 100%;
-            height: auto;
-            max-height: 500px;
-            object-fit: contain;
+            max-height: 350px;
+            object-fit: fill;
             display: block;
+          
         }
 
-        .product-image {
+        /* .product-image {
             width: 100%;
             height: auto;
-            max-height: 500px;
-            object-fit: contain;
+            /* max-height: 300px; */
+            /* object-fit: fill;
             display: block;
-        }
+        } */ */
 
         .carousel-btn {
             position: absolute;
@@ -396,18 +391,7 @@
             transform: scale(1.2);
         }
 
-        @media (max-width: 768px) {
-            .carousel-container {
-                width: 100%;
-            }
-
-            .carousel-btn {
-                width: 30px;
-                height: 30px;
-                line-height: 26px;
-                font-size: 18px;
-            }
-        }
+     
 
         /* Chrome, Safari, Edge, Opera */
         input::-webkit-outer-spin-button,
@@ -425,12 +409,191 @@
             transform: rotate(90deg);
             /* Rotate to simulate arrow down */
         }
+    @media (min-width: 768px) {
+        .container{
+            max-width: 350px;
+            width: 100%;
+        }
+    
+          .product-category-container {
+    /* max-width: 650px; */
+  
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    /* overflow-x: auto; */
+  
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    max-width: 350px;
+    margin: 0 auto;
+height: 100%;
+  }
+
+  .product-item-card {
+    flex: 0 0 33.33%; 
+    max-width: 67%;
+    scroll-snap-align: start;
+    background-color: #1f1f1f;
+    padding: 0;
+ margin-left: -6%;
+height: 100%;
+    /* margin-bottom: 100%; */
+
+  }
+
+
+
+ }
     </style>
 
+{{-- new button  --}}
 
+<style>
+/* Default: stacked (mobile) */
+#bottomNavbar {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 350px;
+    margin: auto;
+}
 
+.wishlist-btn,
+.add-btn {
+    height: 44px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* box-sizing: border-box; */
+    /* white-space: nowrap; */
+}
 
+.wishlist-btn {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
 
+.add-btn {
+    background-color: var(--primary-color);
+    color: black;
+}
+
+/* Desktop: side-by-side */
+@media (min-width: 768px) {
+    .btn-row {
+        flex-direction: row;
+        /* flex-wrap: wrap; */
+        justify-content: space-between;
+    }
+
+    .wishlist-btn,
+    .add-btn {
+        flex: 1 1 48%;
+    }
+}
+</style>
+
+<style>
+        body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      max-width: 450px;
+      margin: 0 auto;
+    }
+
+   .product-category-container {
+   display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 8px;
+  gap: 4px;
+  width: 100%; /* ← Fix: changed from max-content to 100% */
+  scrollbar-width: none;
+  height: 100%;
+   
+    }
+
+ 
+
+    .product-item-card {
+      flex: 0 0 calc((350px - 4px) / 2);
+      max-width: calc((350px - 4px) / 2);
+      background-color: #111;
+      overflow: hidden;
+   
+    }
+
+    .product-item-card img {
+      width: 100%;
+      object-fit: fill;
+    }
+
+    .product-item-card-body {
+  
+      height: 160px;
+    }
+
+    .product-name {
+      display: block;
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 11px;
+      margin-top: 2px;
+    }
+
+    .card-title {
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .d-flex {
+      display: flex;
+      align-items: start;
+      gap: 4px;
+      font-size: 10px;
+      margin-top: 2px;
+
+    }
+
+    .card-text {
+      font-size: 11px;
+    }
+
+    .card-text.me-2.ml-2 {
+      text-decoration: line-through;
+      color: red;
+    }
+
+    .card-text.ml-1 {
+      color: green;
+      font-weight: bold;
+    }
+
+    @media screen and (min-width: 768) {
+      .product-item-card {
+        flex: 0 0 calc((350px - 8px) /3 );
+        max-width: calc((350px - 8px) / 3);
+      }
+         .product-item-card img {
+      width: 100%;
+   
+    object-fit: fill;
+    
+    }
+      
+    }
+</style>
 
     <div class="container">
 
@@ -438,10 +601,10 @@
         <div id="toast-container" class="position-fixed w-100" style="z-index: 9999;top: 66px;"></div>
 
 
-        <div class="row align-items-center mb-3" style="margin-top:96px;">
+        <div class="row align-items-center mb-3 bg-p" style="margin-top:96px;">
 
             <!-- Product Image -->
-            <div class="col-12 col-md-6 text-center mb-md-0 position-relative p-0">
+            <div class="col-12  text-center mb-md-0 position-relative p-0 bg-p">
                 <!-- Carousel -->
                 @php
                     use Illuminate\Support\Facades\Crypt;
@@ -550,9 +713,7 @@
                     </div>
 
                     @if (!empty($product_details->images) && count(json_decode($product_details->images)) > 1)
-                        <!--<button class="carousel-btn" id="prevBtn">❮</button>-->
-                        <!--<button class="carousel-btn" id="nextBtn">❯</button>-->
-
+                       
                         <div class="carousel-dots">
                             @foreach (json_decode($product_details->images) as $index => $pimages)
                                 <div class="dot {{ $index === 0 ? 'active' : '' }}" data-index="{{ $index }}"></div>
@@ -583,27 +744,6 @@
                     @endif
                 </div>
 
-
-
-
-                <!-- Rating Badge -->
-                <!--<span class="badge bg-success me-2 position-absolute" -->
-                <!--      style="bottom: 18px; right: 10px; background-color:#04AA6D; color: white; padding: 8px 15px; border-radius: 12px; font-size: 14px;">-->
-                <!--  <i class="fa fa-star checked" style="color:white"></i>  4.1 <i class="bi bi-star-fill" style="font-size: 11px;"></i> | 5-->
-                <!--</span>-->
-
-                <!--<span class="badge badgee bg-success me-2 position-absolute"-->
-                <!--    style="bottom: 38px; right: 10px; background-color:#04AA6D; color: white; padding: 8px 15px; border-radius: 12px; font-size: 10px; z-index:20 !important;">-->
-                <!--    No Reviews Yet-->
-                <!--</span>-->
-
-
-
-                <!-- GET IT IN 48 HOURS Tag -->
-                <!--<div class="position-absolute" -->
-                <!--     style="bottom: 10px; left: 0px; background: var(--primary-color); color: black; padding: 4px 10px;  border-top-right-radius: 12px; border-bottom-right-radius: 12px; font-size: 14px; font-weight: bold; text-align: center; opacity: 0.8;">-->
-                <!--    GET IT IN 48 HOURS-->
-                <!--</div>-->
             </div>
 
             @php
@@ -629,23 +769,14 @@
 
 
             <!-- Product Details -->
-            <div class="col-12 col-md-6 text-light p-4 ">
-                <p class="font-weight-bold" style="color:white; margin: 10px 0px 0px;">
-                    @if ($brnd_cnt != 0)
-                        <span style="text-transform: uppercase;">{{ $brnd_name->brand_name }}</span> -
+            <div class="col-12 text-light p-4 bg-gray ">
+                   @if ($brnd_cnt != 0)
+                        <span style="text-transform: uppercase;">{{ $brnd_name->brand_name }}</span>
                     @endif
+                <p class="font-weight-bold" style="color:white; margin: 6px 0px 0px;">
+                 
                     {{ $product_details->product_name }}
                 </p>
-
-                <!--<h6 class="fw-bold" style="margin-top: 3px;">{{ $product_details->product_name }}</h6>-->
-
-                <!--<div>-->
-                <!--    MRP Rs. <span class="text-muted text-decoration-line-through"> {{ $mrp }}</span>-->
-                <!--    <span class=" fw-bold"> Rs. {{ $sellingPrice }}</span>-->
-                    <!--<span class="text-danger fw-bold">({{ $discount }}% OFF)</span><br>-->
-                <!--    <span class="discount">{{ $discount }}% OFF</span><br>-->
-                <!--    <span>(Inclusive of all taxes)</span>-->
-                <!--</div>-->
                 <div class="d-flex mb-2">
                     <p class="me-2">Rs. <span id="sellingPrice">{{ $sellingPrice }}</span></p>
                     <p class="me-2" style="text-decoration: line-through; color: red">Rs. <span id="mrp">{{ $mrp }}</span></p>
@@ -660,42 +791,18 @@
             <!-- Size Section -->
             <div class="row mt-4 mb-4 size-section pt-4 pb-4 text-light">
 
-
-        
-                @php
-                    $sizecnt = DB::table('products')
-                        ->where('product_id', $product_details->product_id)
-                        ->where(function ($query) {
-                            $query->whereNotNull('bust_size')
-                                  ->orWhereNotNull('hip_size')
-                                  ->orWhereNotNull('weist_size')
-                                  ->orWhereNotNull('shoulder_size')
-                                  ->orWhereNotNull('product_length');
-                        })
-                        ->count();
-                @endphp
-                
-                
                 @if (empty($size_data->size_name) || $size_data->size_name == '')
                     @if ($subsubcat_id == 40)
                     @else
-                        <div class="px-4 d-flex justify-content-between align-items-center mb-3" style="gap: 1rem;">
+                        <div class="px-4 d-flex justify-content-between align-items-center mb-3" style="gap: 1rem; ">
                             <h4 class="mb-0">Selected Size: <span id="selectedSize"></span></h4>
 
                             <h4 class="mb-0 size-chart-button" onclick="openModal()">Size Chart</h4>
                         </div>
 
 
-                        <!--<div class="d-flex mb-4 flex-wrap" style="gap: 0.5rem;">-->
-                        <!--    @foreach ($size_data as $sdata)-->
-                        <!--        <button type="button" class="btn btn-outline-secondary newbtn border-light fs-2 m-1"-->
-                        <!--            style="font-weight: bold; height: 45px; border-radius: 16px; padding: 0 16px; min-width: 50px;"-->
-                        <!--            onclick="selectSize(this, '{{ $sdata->size_name }}')">-->
-                        <!--            {{ $sdata->size_name }}-->
-                        <!--        </button>-->
-                        <!--    @endforeach-->
-                        <!--</div>-->
-                        <div class="d-flex mb-4 flex-wrap" style="gap: 0.5rem;">
+                   
+                        <div class="d-flex mb-4 flex-wrap" style="gap: 0.5rem; ">
                             @foreach ($size_data as $sdata)
                                 <button type="button"
                                     class="btn btn-outline-secondary newbtn border-light fs-2 m-1"
@@ -708,23 +815,15 @@
                         </div>
 
 
-                        <!--<div id="error-message1" class="d-flex text-danger">-->
-                        <!-- Error message will appear here -->
-                        <!--</div>-->
+                      
                     @endif
                 @endif
 
-        <!-- Modal Container -->
-        <div id="modal-container">
-            <div class="modal-content" style="max-width: 100%; padding: 10px 15px; background-color:#1f1f1f">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <h4 class="text-light m-0"><b>Size Chart</b></h4>
-                    <button class="close-button" onclick="closeModal()" style="font-size: 20px; border:none; color:white">×</button>
-                </div>
-        
-
-                @if($sizecnt == 0)
-                
+                <!-- Modal Container -->
+                <div id="modal-container" >
+                    <div class="modal-content">
+                        <h4 class="text-dark"><b>Size Chart</b></h4>
+                        <button class="close-button" onclick="closeModal()">×</button>
                         @if ($subcat_id == 23)
                             <img src="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/Size%20Chart/Men%20---%20Footwear.jpg"
                                 alt="Men's Bottom Wear Size Chart" class="size-chart-image">
@@ -744,66 +843,9 @@
                             <img src="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/Size%20Chart/Men%20-%20Bottom%20Wear.jpg"
                                 alt="Men's Bottom Wear Size Chart" class="size-chart-image">
                         @endif
-                
-                @else
-                
-                
-                <!-- Table -->
-              <table class="table table-bordered table-striped table-dark text-center w-100 mb-1" style="table-layout: fixed;">
-                  
 
-            <thead>
-                
-                @if($product_details->subcategory_id == 2)
-                    <tr>
-                        <th colspan="6" style="text-align:center; font-size: 14px;">Mens -- Topwear, Indian and Festive Wear</th>
-                    </tr>
-                @elseif($product_details->subcategory_id == 46)
-                    <tr>
-                        <th colspan="6" style="text-align:center; font-size: 14px;">Womens -- Topwear, Indian and Festive Wear</th>
-                    </tr>
-                @elseif($product_details->subcategory_id == 17)
-                    <tr>
-                        <th colspan="6" style="text-align:center; font-size: 14px;">Mens -- Bottom Wear</th>
-                    </tr>
-                @elseif($product_details->subcategory_id == 59)
-                    <tr>
-                        <th colspan="6" style="text-align:center; font-size: 14px;">Womens -- Bottom Wear</th>
-                    </tr>
-                @endif
-                <tr>
-                    <th style="width: 50px; font-size:11px; text-align:center">Size</th>
-                    <th style="width: 50px; font-size:11px; text-align:center">Bust<br>(inch)</th>
-                    <th style="width: 50px; font-size:11px; text-align:center">Hip<br>(inch)</th>
-                    <th style="width: 50px; font-size:11px; text-align:center">Waist<br>(inch)</th>
-                    <th style="width: 80px; font-size:11px; text-align:center">Shoulder<br>(inch)</th>
-                    <th style="width: 50px; font-size:11px; text-align:center">Length<br>(inch)</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($size_data as $sdata)
-                    @php
-                        $bust = DB::table('products')
-                            ->select('bust_size','hip_size','weist_size','shoulder_size','product_length')
-                            ->where('product_id', $product_details->product_id)
-                            ->where('size_name', $sdata->size_name)
-                            ->latest()
-                            ->first();
-                    @endphp
-                    <tr>
-                        <td>{{ $sdata->size_name }}</td>
-                        <td>{{ $bust->bust_size }}</td>
-                        <td>{{ $bust->hip_size }}</td>
-                        <td>{{ $bust->weist_size }}</td>
-                        <td>{{ $bust->shoulder_size }}</td>
-                        <td>{{ $bust->product_length }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-        @endif
-            </div>
-        </div>
+                    </div>
+                </div>
 
                 @if ($colorcnt == 0)
                 @else
@@ -868,7 +910,7 @@
 
 
 
-        <div class="row text-light">
+        <div class="row text-light" >
             <div class="mb-4">
                 <h4>Check Delivery & Services :</h4>
                 <div class="input-group d-flex">
@@ -893,86 +935,6 @@
             </video>
 
         </div>
-
-
-
-
-
-        <!-- Offer Section -->
-        <!--<div class="row offer-section mt-4  text-light" >-->
-        <!--    <div class="offer">-->
-        <!--        <h6>Flat 300 Off</h6>-->
-        <!--        <p>Applicable on your first order. Use code: MYNTRA300</p>-->
-        <!--    </div>-->
-        <!--    <div class="offer">-->
-        <!--        <h6>Best Price: <span class="text-danger">₹239</span> <a href="#" style="color:var(--secondary-color);">VIEW PRODUCTS</a></h6>-->
-        <!--        <p>Applicable on orders above Rs. 499 (only on first purchase)<br>-->
-        <!--        Coupon code: SAVINGSPLUS<br>-->
-        <!--        Coupon Discount: 25% off (Your total saving: Rs. 560)</p>-->
-        <!--    </div>-->
-        <!--    <div class="offer">-->
-        <!--        <h6>10% Discount on Kotak Credit and Debit Cards <a href="#" style="color:var(--secondary-color);">T&C</a></h6>-->
-        <!--        <p>Min Spend ₹3500, Max Discount ₹1000.</p>-->
-        <!--    </div>-->
-        <!--    <div class="offer">-->
-        <!--        <h6>10% Discount on BOBCARD Credit Cards and Credit Card EMI <a href="#" style="color:var(--secondary-color);">T&C</a></h6>-->
-        <!--        <p>Min Spend ₹3500, Max Discount ₹1000.</p>-->
-        <!--    </div>-->
-        <!--    <div class="offer">-->
-        <!--        <h6>10% Discount on ICICI Bank Netbanking <a href="#" style="color:var(--secondary-color);">T&C</a></h6>-->
-        <!--        <p>Min Spend ₹3000, Max Discount ₹1000.</p>-->
-        <!--    </div>-->
-        <!--</div>-->
-
-        <!--<div class="row mt-4">-->
-        <!--     <div class="section-title">Customer Photos (51)</div>-->
-        <!--     <div class="photos" style="margin-bottom: 10px">-->
-        <!--         <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR1rj8LiNLL3ZIt4BNVCiUhap11P3qxDthpklNmSNUck0D7m--hNd9Tve6Iz2Ql6_vOFj4lnihQY2utaYgiBQvUiT3bRFI0WmDrQdvMvclk6yFLWZxgNWBfSQ" alt="Customer Photo">-->
-        <!--         <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR1rj8LiNLL3ZIt4BNVCiUhap11P3qxDthpklNmSNUck0D7m--hNd9Tve6Iz2Ql6_vOFj4lnihQY2utaYgiBQvUiT3bRFI0WmDrQdvMvclk6yFLWZxgNWBfSQ" alt="Customer Photo">-->
-        <!--         <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR1rj8LiNLL3ZIt4BNVCiUhap11P3qxDthpklNmSNUck0D7m--hNd9Tve6Iz2Ql6_vOFj4lnihQY2utaYgiBQvUiT3bRFI0WmDrQdvMvclk6yFLWZxgNWBfSQ" alt="Customer Photo">-->
-        <!--     </div>-->
-
-        <!--     <div class="section-title">Customer Reviews (60)</div>-->
-        <!--     <div class="review">-->
-        <!--         <p>Really I loved this product thanks Myntra to provide such a liket this product i am thankful for you.🙏</p>-->
-        <!--         <div class="reviews mt-4">-->
-        <!--             <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR1rj8LiNLL3ZIt4BNVCiUhap11P3qxDthpklNmSNUck0D7m--hNd9Tve6Iz2Ql6_vOFj4lnihQY2utaYgiBQvUiT3bRFI0WmDrQdvMvclk6yFLWZxgNWBfSQ" alt="Review Photo">-->
-        <!--             <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR1rj8LiNLL3ZIt4BNVCiUhap11P3qxDthpklNmSNUck0D7m--hNd9Tve6Iz2Ql6_vOFj4lnihQY2utaYgiBQvUiT3bRFI0WmDrQdvMvclk6yFLWZxgNWBfSQ" alt="Review Photo">-->
-        <!--             <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR1rj8LiNLL3ZIt4BNVCiUhap11P3qxDthpklNmSNUck0D7m--hNd9Tve6Iz2Ql6_vOFj4lnihQY2utaYgiBQvUiT3bRFI0WmDrQdvMvclk6yFLWZxgNWBfSQ" alt="Review Photo">-->
-        <!--             <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR1rj8LiNLL3ZIt4BNVCiUhap11P3qxDthpklNmSNUck0D7m--hNd9Tve6Iz2Ql6_vOFj4lnihQY2utaYgiBQvUiT3bRFI0WmDrQdvMvclk6yFLWZxgNWBfSQ" alt="Review Photo">-->
-        <!--             <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR1rj8LiNLL3ZIt4BNVCiUhap11P3qxDthpklNmSNUck0D7m--hNd9Tve6Iz2Ql6_vOFj4lnihQY2utaYgiBQvUiT3bRFI0WmDrQdvMvclk6yFLWZxgNWBfSQ" alt="Review Photo">-->
-        <!--             <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR1rj8LiNLL3ZIt4BNVCiUhap11P3qxDthpklNmSNUck0D7m--hNd9Tve6Iz2Ql6_vOFj4lnihQY2utaYgiBQvUiT3bRFI0WmDrQdvMvclk6yFLWZxgNWBfSQ" alt="Review Photo">-->
-        <!--             <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR1rj8LiNLL3ZIt4BNVCiUhap11P3qxDthpklNmSNUck0D7m--hNd9Tve6Iz2Ql6_vOFj4lnihQY2utaYgiBQvUiT3bRFI0WmDrQdvMvclk6yFLWZxgNWBfSQ" alt="Review Photo">-->
-        <!--             <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR1rj8LiNLL3ZIt4BNVCiUhap11P3qxDthpklNmSNUck0D7m--hNd9Tve6Iz2Ql6_vOFj4lnihQY2utaYgiBQvUiT3bRFI0WmDrQdvMvclk6yFLWZxgNWBfSQ" alt="Review Photo">-->
-        <!--             <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR1rj8LiNLL3ZIt4BNVCiUhap11P3qxDthpklNmSNUck0D7m--hNd9Tve6Iz2Ql6_vOFj4lnihQY2utaYgiBQvUiT3bRFI0WmDrQdvMvclk6yFLWZxgNWBfSQ" alt="Review Photo">-->
-
-        <!--         </div>-->
-        <!--         <p class="review-meta">Santanu | 8 Feb 2025</p>-->
-        <!--     </div>-->
-
-        <!--     <div style="display: flex; align-items: center; justify-content: center; width: 100vw; margin: 5px 0px;">-->
-        <!--      <hr style="height: 2px; background-color: grey; border: none; width: 80%; margin: 0px;">-->
-        <!--     </div>-->
-
-
-        <!--     <div class="review">-->
-        <!--         <p>Nice shoes</p>-->
-        <!--         <div class="reviews mt-4">-->
-        <!--             <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR1rj8LiNLL3ZIt4BNVCiUhap11P3qxDthpklNmSNUck0D7m--hNd9Tve6Iz2Ql6_vOFj4lnihQY2utaYgiBQvUiT3bRFI0WmDrQdvMvclk6yFLWZxgNWBfSQ" alt="Review Photo">-->
-        <!--             <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR1rj8LiNLL3ZIt4BNVCiUhap11P3qxDthpklNmSNUck0D7m--hNd9Tve6Iz2Ql6_vOFj4lnihQY2utaYgiBQvUiT3bRFI0WmDrQdvMvclk6yFLWZxgNWBfSQ" alt="Review Photo">-->
-        <!--         </div>-->
-        <!--         <p class="review-meta">Aakash | 16 Feb 2025</p>-->
-        <!--     </div>-->
-
-        <!--     <div style="display: flex; align-items: center; justify-content: center; width: 100vw; margin: 5px 0px;">-->
-        <!--         <hr style="height: 2px; background-color: grey; border: none; width: 80%; margin: 0px;">-->
-        <!--     </div>-->
-
-        <!--     <div style="text-align: center; margin: 10px 0px;">-->
-        <!--         <a href="#" style="color: white; cursor: pointer; font-weight: bold;">See All Reviews</a >-->
-        <!--     </div>-->
-        <!-- </div>-->
-
 
 
 
@@ -1142,8 +1104,8 @@
     </div>
 
     <!-- Bottom Navbar -->
-    <div class=" fixed-bottom-navbar d-flex flex-row flex-md-row gap-3 " id="bottomNavbar"
-        style="background-color:black; color:white; border:none;">
+    <div class=" fixed-bottom-navbar d-flex flex-row flex-md-row gap-3 width:100% " id="bottomNavbar"
+        style=" background-color:black; white; border:none;">
 
 
 
@@ -1194,36 +1156,48 @@
 
 
 
+ <div style="display: flex; gap: 8px; width: 100%; max-width: 350px; flex-wrap: wrap;">
 
-        <div class="btn btn-lg fs-5 text-light"
-            style="flex: 0 0 40%; max-width: 40%; border: 1px solid white; cursor: pointer;"
-            onclick="addToWishlist(this, '{{ $tempUserId }}', '{{ $userId }}', '{{ $productId }}', '{{ $cartId }}')">
-
-            <i class="{{ $isWishlisted ? 'fas' : 'far' }} {{ $isWishlisted ? 'text-danger' : '' }} fa-heart wishlist-icon"
-                style="margin-right: 5px; font-size: 17px;"></i>
-            Wishlist
-
-        </div>
-
-
-
-        <a id="addToBagBtn" class="btn btn-lg fs-5 addtobag"
-            style="flex: 0 0 57%; max-width: 57%; background-color: var(--primary-color); color: black;"
-            onclick="addToCart()">
-            <i class="fa fa-shopping-bag mx-2"></i>
-            Add to Bag
-        </a>
-
-        <a id="goToBagBtn" class="btn btn-lg fs-5"
-            style="flex: 0 0 57%; max-width: 57%; background-color: var(--primary-color); color: black;   display:none;"
-            onclick="window.location.href='/addtocart'">
-            <i class="fa fa-shopping-bag mx-2"></i>
-            Go to Bag
-        </a>
+    <!-- Wishlist Button -->
+    <div class="btn btn-sm"
+        style="flex: 1 1 48%; height: 44px; font-size: 14px; font-weight: 600; padding: 0 12px; display: flex; align-items: center; justify-content: center; background-color: #000; color: #fff; border: 1px solid #fff; cursor: pointer; box-sizing: border-box;"
+        onclick="addToWishlist(this, '{{ $tempUserId }}', '{{ $userId }}', '{{ $productId }}', '{{ $cartId }}')">
+        <i class="{{ $isWishlisted ? 'fas' : 'far' }} {{ $isWishlisted ? 'text-danger' : '' }} fa-heart"
+            style="font-size: 16px; margin-right: 6px;"></i>
+        Wishlist
     </div>
 
+    <!-- Add to Bag Button -->
+    <a id="addToBagBtn"
+        class="btn btn-sm"
+        style="flex: 1 1 48%; height: 44px; font-size: 14px; font-weight: 600; padding: 0 12px; display: flex; align-items: center; justify-content: center; background-color: var(--primary-color); color: black; text-decoration: none; box-sizing: border-box;"
+        onclick="addToCart()">
+        <i class="fa fa-shopping-bag" style="margin-right: 6px;"></i>
+        Add to Bag
+    </a>
 
-    <div class="container pr-0" style="background-color: #1f1f1f;">
+    <!-- Go to Bag Button (Hidden Initially) -->
+    <a id="goToBagBtn"
+        class="btn btn-sm"
+        style="flex: 1 1 100%; height: 44px; font-size: 14px; font-weight: 600; padding: 0 12px; display: none; align-items: center; justify-content: center; background-color: var(--primary-color); color: black; text-decoration: none; box-sizing: border-box;"
+        onclick="window.location.href='/addtocart'">
+        <i class="fa fa-shopping-bag" style="margin-right: 6px;"></i>
+        Go to Bag
+    </a>
+
+</div>
+
+
+   
+</div>
+
+
+
+    
+  
+
+
+   <div class=" container margin: 0 auto; pr-0" style="background-color: #1f1f1f;">
 
         <!--Product -->
         <h4 class=" text-light">Similar Products</h4>
@@ -1233,8 +1207,20 @@
                 <!-- Category Product 1 -->
                 @foreach ($same_products as $same_p)
                 
+                 <!--Calculation For Discount Starts-->
                     @php
-                        // For each product in same_products ($same_p)
+                        $mrp1 = $same_p->maximum_retail_price;
+                        $price1 = $same_p->portal_updated_price;
+                    
+                        try {
+                            $discount1 = ($mrp1 > 0) ? round((($mrp1 - $price1) / $mrp1) * 100) : 0;
+                        } catch (\Throwable $e) {
+                            $discount1 = 0;
+                        }
+                    @endphp
+                    
+                <!--Calculation For Discount Ends-->
+                    @php
                         if($same_p->category_id == 88 || $same_p->subcategory_id == 95) {
                             $cat_id = DB::table('categories')->where('id', $same_p->subcategory_id)->latest()->first();
                             $seller_id = DB::table('sellers')->where('seller_id', $same_p->seller_id)->latest()->first();
@@ -1247,57 +1233,57 @@
                 
                         $brnd_cnt = DB::table('brands')->where('id', $same_p->brand_id)->count();
                         if($brnd_cnt > 0) {
-                            $brnd_name = DB::table('brands')->where('id', $same_p->brand_id)->latest()->first();
-                            $brnd_name11 = $brnd_name->brand_name;
+                            $brnd_name111 = DB::table('brands')->where('id', $same_p->brand_id)->latest()->first();
+                            $brnd_name111 = $brnd_name->brand_name;
                         } else {
-                            $brnd_name11 = $seller_id->company_name;
+                            $brnd_name111 = $seller_id->company_name;
                         }
                 
                         $bname = DB::table('brands')->where('id', $same_p->brand_id)->latest()->first();
                         $bcnt = DB::table('brands')->where('id', $same_p->brand_id)->count();
-                
+    
                         // Generate fresh random numbers for each product
-                        $productOnlyLeft = rand(1, 3);
-                        $productOthersViewing = rand(5, 100);
+                        $productOnlyLeft3 = rand(1, 3);
+                        $productOthersViewing3 = rand(5, 100);
                 
                         // Process controller's $tags and replace placeholders with product-specific numbers
-                        $productTags = [];
+                        $productTags3 = [];
                         foreach($tags as $tagdata) {
                             // Access the tag property from the object
-                            $tagText = $tagdata->tag;
+                            $tagText3 = $tagdata->tag;
                             // Replace all possible placeholders with actual random numbers
-                            $processedTag = str_replace('[X]', $productOnlyLeft, $tagText);
-                            $processedTag = str_replace('[Y]', $productOthersViewing, $tagText);
-                            $processedTag = str_replace('[onlyLeft]', $productOnlyLeft, $tagText);
-                            $processedTag = str_replace('[othersViewing]', $productOthersViewing, $tagText);
-                            $productTags[] = $processedTag;
+                            $processedTag3 = str_replace('[X]', $productOnlyLeft3, $tagText3);
+                            $processedTag3 = str_replace('[Y]', $productOthersViewing3, $processedTag3);
+                            $processedTag3 = str_replace('[onlyLeft]', $productOnlyLeft3, $processedTag3);
+                            $processedTag3 = str_replace('[othersViewing]', $productOthersViewing3, $processedTag3);
+                            $productTags3[] = $processedTag3;
                         }
-                
+    
                         // Define special tags that should appear below price
-                        $productSpecialTags = ["Low Stock", "Only {$productOnlyLeft} Left"];
+                        $productSpecialTags3 = ["Low Stock", "Only {$productOnlyLeft3} Left"];
                 
                         // Filter tags based on price condition
-                        $filteredTags = $productTags;
+                        $filteredTags3 = $productTags3;
                         if($same_p->portal_updated_price <= 799) {
-                            $filteredTags = array_filter($productTags, function($tag) {
+                            $filteredTags3 = array_filter($productTags3, function($tag) {
                                 return $tag !== 'Free Delivery';
                             });
-                            $filteredTags = array_values($filteredTags); // Reset array keys after filtering
+                            $filteredTags3 = array_values($filteredTags3); // Reset array keys after filtering
                         }
                 
                         // Generate random tag logic based on seller
-                        $productSeed = $userSeed . $same_p->seller_id . $same_p->id;
-                        mt_srand(crc32($productSeed)); // Seed based on user session, seller_id, and product_id
+                        $productSeed3 = $userSeed . $same_p->seller_id . $same_p->id;
+                        mt_srand(crc32($productSeed3)); // Seed based on user session, seller_id, and product_id
                 
                         // Determine if this product gets a tag (70% chance)
-                        $shouldShowTag1 = mt_rand(1, 100) <= 70;
-                        $randomTag1 = '';
-                        $isSpecialTag1 = false;
+                        $shouldShowTag3 = mt_rand(1, 100) <= 70;
+                        $randomTag3 = '';
+                        $isSpecialTag3 = false;
                 
-                        if($shouldShowTag && count($filteredTags) > 0) {
-                            $randomTagIndex = mt_rand(0, count($filteredTags) - 1);
-                            $randomTag = $filteredTags[$randomTagIndex];
-                            $isSpecialTag1 = in_array($randomTag1, $productSpecialTags);
+                        if($shouldShowTag3 && count($filteredTags3) > 0) {
+                            $randomTagIndex3 = mt_rand(0, count($filteredTags3) - 1);
+                            $randomTag3 = $filteredTags3[$randomTagIndex3];
+                            $isSpecialTag3 = in_array($randomTag3, $productSpecialTags3);
                         }
                 
                         mt_srand(); // Reset seed
@@ -1308,48 +1294,64 @@
                     <a href="/product/{{ \Illuminate\Support\Str::slug($sub) }}/{{ \Illuminate\Support\Str::slug($brnd_name11) }}/{{ \Illuminate\Support\Str::slug($same_p->product_name) }}/{{ $same_p->id }}/buy"
                         style="text-decoration:none;">
 
-                        <div class="product-item-card" style="margin-right:1px; height:29vh">
+                        <div class="product-item-card" style="margin-right:1px; height:35vh">
                             @php
                                 $images = json_decode($same_p->images, true);
                             @endphp
 
-                            @if (!empty($images) && isset($images[0]))
-                                <img src="{{ $images[0] }}" alt="Image" style="height: 200px; width: 150px;">
-                                 @if($shouldShowTag1 && $randomTag1 && !$isSpecialTag1)
-                                    <div class="position-absolute" style="
-                                        bottom: 0px;
-                                        left: 0px;
-                                        background-color: #efc475;
-                                        color: black;
-                                        padding: 4px 8px;
-                                        border-radius: 0px 4px 0px 0px;
-                                        font-size: 10px;
-                                        font-weight: bold;
-                                        z-index: 10;
-                                        /* Strong layered box shadows for 3D effect */
-                                        box-shadow:
-                                        4px 4px 8px rgba(0,0,0,0.6),
-                                        inset 0 3px 6px rgba(255, 255, 255, 0.5);
-                                        border-radius: 0px 4px 0px 12px;">                                     
-                                        {{ $randomTag }}
-                                    </div>
-                                @endif
+                               @if (!empty($images) && isset($images[0]))
+                        
+                           <div style="position: relative; display: inline-block;">
+                            <img loading="lazy" src="{{ $images[0] }}" alt="Image" >
+                        
+                            @if($shouldShowTag3 && $randomTag3 && !$isSpecialTag3)
+                                <div class="position-absolute" style="
+                                    bottom: 0px;
+                                    left: 0px;
+                                    background-color: #efc475;
+                                    color: black;
+                                    padding: 4px 8px;
+                                    font-size: 10px;
+                                    font-weight: bold;
+                                    z-index: 10;
+                                    border-radius: 0px 4px 0px 12px;
+                                    box-shadow: 4px 4px 8px rgba(0,0,0,0.6), inset 0 3px 6px rgba(255, 255, 255, 0.5);
+                                ">
+                                    {{ $randomTag3 }}
+                                </div>
                             @endif
-                            
+                        </div>
+                                
+                        @endif
+                          <style>
+                              .product-name {
+                                    display: block;
+                                    max-width: 35vw;     /* Match the card's available width */
+                                    white-space: nowrap;  /* Force single line */
+                                    overflow: hidden;     /* Hide anything that overflows */
+                                    text-overflow: ellipsis; /* Add "..." if text overflows */
+                                }
 
-                            <div class="card-body product-item-card-body text-left" style="height:115px; margin-top:-2vh">
+                          </style>
+                            <div class="card-body product-item-card-body text-left" style="height:115px; margin-top:-1vh">
                                 <h8 class="card-title text-light" title="{{ $same_p->product_name }}">
                                     @if ($brnd_cnt != 0)
                                         <span
-                                            style="text-transform: uppercase;"><b>{{ $brnd_name->brand_name }}</b></span>
+                                            ><b>{{ $brnd_name->brand_name }}</b></span>
                                     @endif
                                     <br>
-                                    {{ strlen($same_p->product_name) <= 16 ? $same_p->product_name : substr($same_p->product_name, 0, 16) . '...' }}
+                                    <div class="product-name">
+                                        {{ $same_p->product_name }}
+                                    </div>
                                 </h8>
                                 <div class="d-flex text-light">
-                                    <p class="card-text me-2" style="text-decoration: line-through; color:red">Rs.
-                                        {{ $same_p->maximum_retail_price }}</p>
-                                    <p class="card-text ml-2">Rs. {{ $same_p->portal_updated_price }}</p>
+                                    <p class="card-text" style="font-size:11px;">₹ {{ $same_p->portal_updated_price }}</p>
+                                    <p class="card-text me-2 ml-2" style="text-decoration: line-through; color:red;font-size:11px;">₹ {{ $same_p->maximum_retail_price }}</p>
+                                    @if($discount1 > 0)
+                                        <p class="card-text ml-1" style="color: green; font-weight: bold;font-size:11px;">
+                                            ({{ $discount1 }}% OFF)
+                                        </p>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -1358,9 +1360,8 @@
 
             </div>
         </div>
-    </div>
-
-
+   </div>
+</div>
 
 
 

@@ -65,14 +65,18 @@
         @media screen and (min-width: 778px) {
 
             body {
+            
                 display: flex !important;
                 justify-content: center !important;
                 align-items: center !important;
                 background: black !important;
+               
             }
 
             .shopping-bag {
+                   
                 width: 40% !important;
+                margin: 0 auto;
             }
 
             .navbar-fixed-top,
@@ -390,7 +394,7 @@
         .tabs {
             display: flex;
             /*border-bottom: 2px solid #ddd;*/
-            margin-top: 80px;
+            margin-top: 59px;
             font-family: Arial, sans-serif;
         }
 
@@ -598,11 +602,12 @@
     </style>
     <link rel="icon" type="image/x-icon"
         href="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/Ohbuddielogo.png">
-    <link rel="stylesheet" href="{{ asset('public/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
         .navbar-fixed-top {
@@ -699,6 +704,7 @@
             /* Ensures text doesn't overlap arrow */
             cursor: pointer;
         }
+      
     </style>
     <style>
         .translate-middle {
@@ -725,37 +731,36 @@
         ::-ms-input-placeholder { /* Edge 12 -18 */
           color: white !important;
         }
+
+        @media(min-width:768px)
+        {
+                 .shopping-bag {
+                max-width: 350px !important;
+                margin: 0 auto;
+            }
+            .navbar-fixed-top{
+                max-width: 350px;
+                     margin: 0 auto;
+            }
+            .footer{
+                max-width: 350px;
+                margin: 0 auto;
+                justify-content: space-between;
+                font-size: 12px;
+            }
+        }
     </style>
+
 </head>
 
 <body>
 
 
-        @php
-            use Carbon\Carbon;
-            $currentTime = Carbon::now();
-            $currentHour = $currentTime->format('H:i');
-        @endphp
-        
-        @php
-            // Define ranges
-            $eveningStart = Carbon::createFromTimeString('19:00');
-            $morningEnd = Carbon::createFromTimeString('10:30');
-        
-            // Check if current time is between 7 PM and 11:59 PM or 12:00 AM and 10:30 AM
-            $showBanner = $currentTime->greaterThanOrEqualTo($eveningStart) || $currentTime->lessThanOrEqualTo($morningEnd);
-        @endphp
-        
-        @if($showBanner)
-            <div style="background-color:#efc475; height:34px; position:fixed; margin-top:45px; left:0; width:100%; z-index: 1050;">
-                <div style="display: flex; align-items: center; justify-content: center; height: 34px;">
-                    <h4 style="color:black; margin: 0; font-size: 14px;">Get Products Delivered By 11 PM Tomorrow</h4>
-                </div>
-            </div>
-        @endif
-        <div class="shopping-bag">
 
-        <div class="d-flex justify-content-between align-items-center px-3 navbar-fixed-top text-light" style="margin-top:0px">
+
+    <div class="shopping-bag">
+
+        <div class="d-flex justify-content-between align-items-center px-3 navbar-fixed-top text-light">
             <div class="d-flex align-items-center">
                 <!-- Back Button -->
                 <a href="javascript:history.back();" style="font-size: 22px; margin-right: 0px; color: black;">
@@ -768,18 +773,18 @@
 
         <div id="toast-container" class="position-fixed w-100" style="z-index: 9999;top: 66px;"></div>
 
-        
+
         <div class="tabs">
             <div class="tab active d-flex align-items-center justify-content-center py-2"
                 onclick="switchTab('buy-it-now')">
-                <span style="font-size: 12px;"> Buy It Now </span>
+                <span style="font-size: 12px;"> Your Ohh! Buddie cart </span>
                 <span id="buy-it-now-count"
                     style="color:black; font-size: 12px;  margin-left: 5px;">({{ $total_qty }})</span>
             </div>
-            <div class="tab d-flex align-items-center justify-content-center  py-2" onclick="switchTab('try-it-now')">
-                <span style="font-size: 12px;"> Try It Now </span>
-                <span id="try-it-now-count" style="color:black;font-size: 12px; margin-left: 5px;">(0)</span>
-            </div>
+            <!--<div class="tab d-flex align-items-center justify-content-center  py-2" onclick="switchTab('try-it-now')">-->
+            <!--    <span style="font-size: 12px;"> Try It Now </span>-->
+            <!--    <span id="try-it-now-count" style="color:black;font-size: 12px; margin-left: 5px;">(0)</span>-->
+            <!--</div>-->
         </div>
 
         @if (count($cart_details) == 0)
@@ -945,6 +950,20 @@
                     style="object-fit:fill; width:100%; height:88vh;">
             @else
                 @foreach ($cart_details as $dat)
+                
+                 <!--Calculation For Discount Starts-->
+                    @php
+                        $mrp1 = $dat['updated_mrp'];
+                        $price1 = $dat['updated_price'];
+                    
+                        try {
+                            $discount1 = ($mrp1 > 0) ? round((($mrp1 - $price1) / $mrp1) * 100) : 0;
+                        } catch (\Throwable $e) {
+                            $discount1 = 0;
+                        }
+                    @endphp
+                    
+                <!--Calculation For Discount Ends-->
                     @php
                         $brnd_cnt = DB::table('brands')->where('id', $dat['brand_id'])->count();
                         if ($brnd_cnt > 0) {
@@ -1001,7 +1020,7 @@
                             style="text-decoration: none;">
 
                             <div class="cart-item-img">
-                                <img src="{{ $dat['image'] }}" alt="Product Image">
+                                <img src="{{ $dat['image'] }}" alt="Product Image" style="height:17vh; width:13vh">
                                 <!--<input class="form-check-input" type="checkbox" id="defaultAddress" style="position: absolute; left: 0;">-->
                                 <input class="form-check-input product-checkbox" type="checkbox"
                                     data-cartid="{{ $dat['id'] }}" style="position: absolute; left: 4px;" checked>
@@ -1016,17 +1035,17 @@
 
                                 <h4>
                                     @if ($brnd_cnt != 0)
-                                        <span style="text-transform: uppercase;">{{ $brnd_name->brand_name }}</span> -
+                                        <span>{{ $brnd_name->brand_name }}</span> 
                                     @endif
 
-                                    {{ strlen($dat['product_name']) <= 20 ? $dat['product_name'] : substr($dat['product_name'], 0, 20) . '...' }}
+                                   <p>{{ strlen($dat['product_name']) <= 24 ? $dat['product_name'] : substr($dat['product_name'], 0, 24) . '...' }}</p> 
                                 </h4>
 
                                 <!-- Remove Button (Triggers Modal) -->
                                 <button type="button" data-bs-toggle="modal"
                                     data-bs-target="#removeModal{{ $dat['id'] }}"
-                                    style="background-color:transparent; border:none; color:white; text-decoration:underline; margin-bottom:5px;">
-                                    Remove
+                                    style="background-color:transparent; border:none; color:white; text-decoration:underline; margin-bottom:25px;">
+                                    <i class="fa fa-trash-o"></i>
                                 </button>
 
                                 <!-- Modal -->
@@ -1124,10 +1143,25 @@
                                     </select>
                                 </p>
                             </div>
-                            <p class="price"><strike style="color:grey;">Rs. {{ $dat['updated_mrp'] }}</strike> <span
-                                    class="discount">Rs. {{ $dat['updated_price'] }}</span></p>
-                            <p>Discount: Rs. {{ $dat['discount'] }}</p>
-                            <p class="d-flex">Total: Rs.<span class="price-value">{{ $dat['cart_value'] }}</span>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <p class="price mb-0" style="margin-bottom: 0; font-size: 11px;">
+                                    ₹{{ $dat['updated_price'] }}
+                                    <strike style="color: rgb(238, 25, 25);">
+                                        <span class="discount ml-2">₹{{ $dat['updated_mrp'] }}</span></strike> 
+                                    
+                                </p>
+                            
+                                @if($discount1 > 0)
+                                    <p class="card-text mb-0" style="color: green; font-weight: bold; font-size: 11px;">
+                                        ({{ $discount1 }}% OFF)
+                                    </p>
+                                @endif
+                            </div>
+
+                    
+                            </p>
+                            <p>Discount: ₹{{ $dat['discount'] }}</p>
+                            <p class="d-flex">Total: ₹<span class="price-value">{{ $dat['cart_value'] }}</span>
                             </p>
 
 
@@ -1174,8 +1208,8 @@
             <!--              </select> -->
             <!--          </p>-->
             <!--      </div>-->
-            <!--    <p class="price">Rs. 949 <span class="discount"><strike style="color:grey;">Rs. 2,625</strike> 1,676 OFF</span></p>-->
-            <!--    <p>Coupon Discount: Rs. 150</p>-->
+            <!--    <p class="price">₹ 949 <span class="discount"><strike style="color:grey;">₹ 2,625</strike> 1,676 OFF</span></p>-->
+            <!--    <p>Coupon Discount:₹150</p>-->
             <!--    <p class="delivery-info">Delivery between 25 Jan - 26 Jan</p>-->
             <!--  </div>-->
             <!--<button class="remove-product" onclick="removeProduct(this)">×</button>-->
@@ -1210,8 +1244,8 @@
             <!--          </p>-->
             <!--      </div>-->
 
-            <!--    <p class="price">Rs. 1,999 <span class="discount"><strike style="color:grey;">Rs. 4,999</strike> 60% OFF</span></p>-->
-            <!--    <p>Coupon Discount: Rs. 150</p>-->
+            <!--    <p class="price">₹ 1,999 <span class="discount"><strike style="color:grey;">₹ 4,999</strike> 60% OFF</span></p>-->
+            <!--    <p>Coupon Discount:₹150</p>-->
             <!--    <p class="delivery-info">Delivery between 26 Jan - 28 Jan</p>-->
             <!--  </div>-->
             <!--<button class="remove-productt" onclick="removeProduct(this)">×</button>-->
@@ -1225,15 +1259,15 @@
         <!--        <span class="icon">%</span> Available Offers-->
         <!--    </h4>-->
         <!-- Default visible offer -->
-        <!--    <div class="offer-item">10% Instant Discount on BOBCARD Credit Card and Credit Card EMI on a min spend of Rs. 3,500. TCA</div>-->
+        <!--    <div class="offer-item">10% Instant Discount on BOBCARD Credit Card and Credit Card EMI on a min spend of₹3,500. TCA</div>-->
         <!-- Hidden offers -->
-        <!--    <div class="offer-item hidden">5% Cashback on all purchases above Rs. 2,000 using XYZ Bank Debit Card.</div>-->
-        <!--    <div class="offer-item hidden">Flat Rs. 500 off on your first purchase above Rs. 10,000 with ABC Card.</div>-->
-        <!--    <div class="offer-item hidden">Flat Rs. 500 off on your first purchase above Rs. 10,000 with ABC Card.</div>-->
-        <!--    <div class="offer-item hidden">Flat Rs. 500 off on your first purchase above Rs. 10,000 with ABC Card.</div>-->
-        <!--    <div class="offer-item hidden">Flat Rs. 500 off on your first purchase above Rs. 10,000 with ABC Card.</div>-->
-        <!--    <div class="offer-item hidden">Flat Rs. 500 off on your first purchase above Rs. 10,000 with ABC Card.</div>-->
-        <!--    <div class="offer-item hidden">Flat Rs. 500 off on your first purchase above Rs. 10,000 with ABC Card.</div>-->
+        <!--    <div class="offer-item hidden">5% Cashback on all purchases above₹2,000 using XYZ Bank Debit Card.</div>-->
+        <!--    <div class="offer-item hidden">Flat₹500 off on your first purchase above₹10,000 with ABC Card.</div>-->
+        <!--    <div class="offer-item hidden">Flat₹500 off on your first purchase above₹10,000 with ABC Card.</div>-->
+        <!--    <div class="offer-item hidden">Flat₹500 off on your first purchase above₹10,000 with ABC Card.</div>-->
+        <!--    <div class="offer-item hidden">Flat₹500 off on your first purchase above₹10,000 with ABC Card.</div>-->
+        <!--    <div class="offer-item hidden">Flat₹500 off on your first purchase above₹10,000 with ABC Card.</div>-->
+        <!--    <div class="offer-item hidden">Flat₹500 off on your first purchase above₹10,000 with ABC Card.</div>-->
         <!-- Show More/Less button -->
         <!--    <div class="show-more-btn mt-2" onclick="toggleOffers()">Show More</div>-->
         <!--</div>-->
@@ -1265,6 +1299,21 @@
                                 <div class="d-flex overflow-auto flex-nowrap"
                                     style="gap: 10px; padding: 10px; scrollbar-width: none;">
                                     @foreach ($wish_list as $wslt)
+                                    
+                                     <!--Calculation For Discount Starts-->
+                                        @php
+                                            $mrp2 = $wslt['mrp'];
+                                            $price2 = $wslt['price'];
+                                        
+                                            try {
+                                                $discount2 = ($mrp2 > 0) ? round((($mrp2 - $price2) / $mrp2) * 100) : 0;
+                                            } catch (\Throwable $e) {
+                                                $discount2 = 0;
+                                            }
+                                        @endphp
+                                        
+                                    <!--Calculation For Discount Ends-->
+                
                                         @php
                                             $mrp = $wslt['mrp'];
                                             $sellingPrice = $wslt['price'];
@@ -1292,32 +1341,50 @@
 
                                         @endphp
 
-                                        <div style="min-width: 165px;">
+                                        <div >
                                             <div class="card position-relative"
                                                 style="border: none; background-color: #000; color: #fff; border: 1px solid white; border-radius: 8px;">
 
                                                 @if (!empty($images) && isset($images[0]))
                                                     <img src="{{ $images[0] }}" class="card-img-top product-img"
                                                         alt="Image"
-                                                        style="height: 200px; object-fit: cover; border-top-left-radius: 8px; object-fit: fill; border-top-right-radius: 8px;">
+                                                        style="">
                                                 @endif
 
 
                                                 <div class="card-body p-2">
                                                     <h6 class="card-title m-0" title="{{ $wslt['name'] }}">
                                                         @if ($brnd_cnt != 0)
-                                                            <span
-                                                                style="text-transform: uppercase;"><b>{{ $brnd_name->brand_name }}</b></span>
+                                                            <span><b>{{ $brnd_name->brand_name }}</b></span>
                                                         @endif
                                                         <br>
-                                                        {{ strlen($wslt['name']) <= 16 ? $wslt['name'] : substr($wslt['name'], 0, 16) . '...' }}
+                                                        <style>
+                                                            .product-name {
+                                                                display: block;
+                                                                max-width: 150px;     /* Match the card's available width */
+                                                                white-space: nowrap;  /* Force single line */
+                                                                overflow: hidden;     /* Hide anything that overflows */
+                                                                text-overflow: ellipsis; /* Add "..." if text overflows */
+                                                            }
+
+                                                        </style>
+                                                        <div class="product-name">
+                                                            {{ $same_p->product_name }}
+                                                        </div>
+                                                        <!--{{ strlen($wslt['name']) <= 16 ? $wslt['name'] : substr($wslt['name'], 0, 16) . '...' }}-->
                                                     </h6>
-                                                    <p class="card-text m-0" style="font-size: 13px;">
-                                                        MRP Rs. <span
-                                                            class="text-decoration-line-through">{{ $mrp }}</span>
-                                                        Rs. {{ $sellingPrice }}<br>
-                                                        <!--<span class="discount">{{ $discount }}% OFF</span>-->
-                                                    </p>
+                                                    <div class="d-flex align-items-baseline" style="gap: 6px; font-size: 11px;">
+                                                        <p class="card-text m-0" style="font-weight: 600;font-size: 11px;">₹{{ $sellingPrice }}</p>
+                                                    
+                                                        <p class="card-text m-0 text-decoration-line-through" style="color: rgb(245, 15, 15);font-size: 11px;">₹{{ $mrp }}</p>
+                                                    
+                                                        @if($discount2 > 0)
+                                                            <p class="card-text m-0" style="color: green; font-weight: bold; font-size: 11px;">
+                                                                ({{ $discount2 }}% OFF)
+                                                            </p>
+                                                        @endif
+                                                    </div>
+
 
                                                     @if ($wslt['sid'] != 40)
                                                         <select class="form-control size-selector mt-1"
@@ -1441,11 +1508,11 @@
                 <div class="title">PRICE DETAILS ({{ $total_qty }} Items)</div>
                 <div class="d-flex justify-content-between" style="font-size: 13px;">
                     <span>Total MRP</span>
-                    <span>Rs. {{ $total_mrp }}</span>
+                    <span>₹ {{ $total_mrp }}</span>
                 </div>
                 <div class="d-flex justify-content-between" style="font-size: 13px;">
                     <span>Discount on MRP</span>
-                    <span class="text-success"> Rs. {{$total_discount}}</span>
+                    <span class="text-success">₹{{$total_discount}}</span>
                 </div>
 
 
@@ -1458,7 +1525,7 @@
                         @if ($shipping_fee === 0)
                             Free
                         @else
-                            Rs. {{ $shipping_fee }}
+                           ₹{{ $shipping_fee }}
                         @endif
                     </span>
                 </div>
@@ -1477,16 +1544,16 @@
                 
                 <div class="d-flex justify-content-between" style="font-size: 13px;">
                     <span>Coupon Discount</span>
-                    <span class="text-success">Rs. <span id="coupon-discount-value">{{$total_coupon}}</span></span>
+                    <span class="text-success">₹ <span id="coupon-discount-value">{{$total_coupon}}</span></span>
                 </div>
 
                 <div class="d-flex justify-content-between" style="font-size: 13px;">
                     <span>Total Amount</span>
-                    <span>Rs.<span class="price-value">{{ $final_price}}</span></span>
+                    <span>₹<span class="price-value">{{ $final_price}}</span></span>
                 </div>
                 @if ($total_price < 750)
                     <div class="terms" style="text-align: center;">
-                        Add More <a href="#">Rs. {{ 750 - $total_price }}</a> For <a href="#">Free
+                        Add More <a href="#">₹ {{ 750 - $total_price }}</a> For <a href="#">Free
                             Delivery</a>.
                     </div>
                 @endif
@@ -1506,7 +1573,7 @@
                     @endphp
                 <div>
                 
-                <div style="color:white;">{{ $total_qty }} Items Selected (Rs. {{ $display_total }})</div>
+                <div style="color:white;">{{ $total_qty }} Items Selected (₹ {{ $display_total }})</div>
                 </div>
 
                 <!--<button><a href="/payment" style="color:black; text-decoration:none">Place Order</a></button>-->
@@ -2099,17 +2166,17 @@
             const showMoreBtn = document.querySelector('.show-more-btn');
 
             // Check if any offer has the "hidden" class
-            const isHidden = hiddenOffers.length > 0 && hiddenOffers[0].classList.contains('hidden');
+            const isHidden = hiddenOffe₹length > 0 && hiddenOffers[0].classList.contains('hidden');
 
             if (isHidden) {
                 // Show all hidden offers
-                hiddenOffers.forEach((offer) => offer.classList.remove('hidden'));
+                hiddenOffe₹forEach((offer) => offer.classList.remove('hidden'));
                 // Change button text to "Show Less"
                 showMoreBtn.textContent = 'Show Less';
             } else {
                 // Hide all offers except the first one
                 const allOffers = document.querySelectorAll('.offer-item');
-                allOffers.forEach((offer, index) => {
+                allOffe₹forEach((offer, index) => {
                     if (index > 0) {
                         offer.classList.add('hidden');
                     }
@@ -2433,8 +2500,8 @@
 
                 totalQty += quantity;
                 totalPrice += (price);
-                totalMrp += (mrp);
-                totalDiscount += (discount);
+                totalMrp = (mrp);
+                totalDiscount = (discount);
 
                 selectedProducts[cartId] = quantity;
             });
@@ -2445,10 +2512,10 @@
 
             if (totalPrice >= 200 && totalPrice <= 499) {
                 shippingFee = 49;
-                shippingText = "Rs. 49";
+                shippingText = "₹ 49";
             } else if (totalPrice >= 500 && totalPrice <= 749) {
                 shippingFee = 29;
-                shippingText = "Rs. 29";
+                shippingText = "₹ 29";
             }
 
             let finalPayable = (totalPrice + shippingFee) - coupontotal;
@@ -2461,18 +2528,18 @@
             $('input[name="total_payable"]').val(finalPayable);
 
             // Update UI display for all price details
-            $('.total').text(`${totalQty} Items Selected (Rs. ${totalPrice - coupontotal})`);
+            $('.total').text(`${totalQty} Items Selected (₹ ${totalPrice - coupontotal})`);
 
             // Update the price details section
-            $('.price-details .d-flex:nth-child(2) span:last-child').text(`Rs. ${totalMrp}`);
-            $('.price-details .d-flex:nth-child(3) span:last-child').text(`Rs. ${totalDiscount}`);
+            $('.price-details .d-flex:nth-child(2) span:last-child').text(`₹ ${totalMrp}`);
+            $('.price-details .d-flex:nth-child(3) span:last-child').text(`₹ ${totalDiscount}`);
             $('.price-details .d-flex:nth-child(4) span:last-child').text(shippingText);
             $('.price-details .price-value').text(finalPayable);
 
             // Update the "Add More for Free Delivery" message
             if (totalPrice < 750) {
                 let amountNeeded = 750 - totalPrice;
-                $('.terms:first').html(`Add More <a href="#">Rs. ${amountNeeded}</a> For <a href="#">Free Delivery</a>.`)
+                $('.terms:first').html(`Add More <a href="#">₹ ${amountNeeded}</a> For <a href="#">Free Delivery</a>.`)
                     .show();
             } else {
                 $('.terms:first').hide();

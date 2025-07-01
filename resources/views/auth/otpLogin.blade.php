@@ -1,3 +1,5 @@
+
+{{-- responsive --}}
 @extends('layouts.app')
 
 @section('content')
@@ -24,6 +26,7 @@ body {
     position: relative;
     min-height: 100vh;
     overflow: hidden;
+  
 }
 
 .row {
@@ -259,7 +262,7 @@ body {
     height: 100%;
     width: 100%;
     transform: translate(35%, 0);
-    /* background: url("{{ asset('public/assets/images/banners/login page.jpg') }}") no-repeat center center; */
+    /* background: url("{{ asset('/assets/images/banners/login page.jpg') }}") no-repeat center center; */
     background: url('https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/Welcome/login%20page_new.png') no-repeat center center;
 
     background-size: cover;
@@ -285,6 +288,9 @@ body {
 
 
 @media only screen and (min-width: 768px) {
+    .container{
+          width: 350px !important;
+    }
 
     .container::before,
     .container.sign-in::before,
@@ -298,6 +304,7 @@ body {
         object-fit:fill;
         margin-left:10px;
         zoom: 89%;
+        
     }
 
    
@@ -494,6 +501,50 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+<style>
+/* Force mobile layout on all viewports */
+@media only screen and (min-width: 768px) {
+    .container {
+        max-width: 350px !important;
+    }
+
+
+
+    .container::before,
+    .container.sign-in::before,
+    .container.sign-up::before {
+        transform: none !important;
+        right: 0 !important;
+        zoom: 100% !important;
+        border-radius: 0 !important;
+        margin-left: 0 !important;
+        height: 100vh !important;
+    }
+
+    .row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .col {
+        position: static !important;
+        transform: none !important;
+        width: 100% !important;
+        padding: 1rem !important;
+        background-color: var(--white);
+        border-radius: 0 !important;
+    }
+
+    .form-wrapper {
+        margin: auto;
+    }
+
+    .content-row {
+        display: none !important;
+    }
+}
+</style>
+
 </style>
 
 
@@ -556,7 +607,7 @@ input[type=number] {
                         </button>
                         
                         <a href="/auth/google" class="btn btn-light m-1" style=" font-family: sans-serif; flex-grow: 1; width: 50%; border-color: black; box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); display: flex; align-items: center; justify-content: center; gap: 10px;">
-                            <!--<img src="{{ asset('public/assets/images/logo/google.png') }}" alt="Google Logo" style="height: 28px; width: auto;">-->
+                            <!--<img src="{{ asset('/assets/images/logo/google.png') }}" alt="Google Logo" style="height: 28px; width: auto;">-->
                             <img src="https://i.pinimg.com/736x/68/3d/9a/683d9a1a8150ee8b29bfd25d46804605.jpg" alt="Google Logo" style="height: 28px; width: auto;">
                             <span>Google</span>
                         </a>

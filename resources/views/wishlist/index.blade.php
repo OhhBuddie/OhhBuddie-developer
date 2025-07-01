@@ -11,7 +11,7 @@
     <title>Ohhbuddie | WishList</title>
     
     <link rel="icon" type="image/x-icon" href="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/Ohbuddielogo.png">
-    <link rel="stylesheet" href="{{ asset('public/assets/css/style.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}"> 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -53,14 +53,14 @@
         }
 
         .card{
-             border-radius: 8px;
+             border-radius: 10px;
              background: white; 
              color: black;
             
         }
         
         .card img{
-            border-radius: unset;
+             border-radius: 10px;
             height: 25vh;
         }
         
@@ -69,7 +69,8 @@
         }
         
         .card-body{
-   
+   background-color: black;
+   color: white;
             display: flex;
             padding: 5px 10px 10px 10px;
             flex-direction: column;
@@ -106,7 +107,7 @@
         }
         
         .form-control{
-            border: var(--bs-border-width) solid black;
+            border: var(--bs-border-width) solid rgb(255, 255, 255);
         }
         
         .size-selector {
@@ -117,23 +118,96 @@
             background-size: 16px;
             padding-right: 30px; /* Ensures text doesn't overlap arrow */
             cursor: pointer;
+            background-color: white;
         }
 
 
     </style>
-            <style>
-        .translate-middle {
-            transform: translate(-50%, -42%) !important;
-        }
         
-        .badge {
-        --bs-badge-padding-x: 0.45em;
-        --bs-badge-padding-y: 0.25em;
-        --bs-badge-font-size: 0.65em;
-        
-        }
-    </style>
+{{-- button css start --}}
+<style>
+    /* Mobile-first (also locks layout on desktop) */
+/* === Mobile view: max-width 767px === */
+@media (max-width: 767px) {
+  .move-addtobag-btn {
+    background-color: var(--primary-color);
+    color: black;
+    width: 130px;
+    height: 36px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0 5px;
+    border-radius: 5px;
+  }
+
+  .trash-btn {
+    background-color: rgb(233, 55, 55);
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 40px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  .trash-btn i {
+    font-size: 14px;
+  }
+}
+
+/* === Desktop view: min-width 768px === */
+@media (min-width: 768px) {
+ .container{
+    max-width: 350px !important;
+ }
+ .navbar-fixed-top{
+    max-width: 350px ;
+    margin: 0 auto;
+ }
+  .move-addtobag-btn {
+    background-color: var(--primary-color);
+    color: black;
+    width: 100px;
+    height: 36px;
+    font-size: 10px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0 5px;
+    border-radius: 5px;
+  }
+
+  .trash-btn {
+    background-color: rgb(233, 55, 55);
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 40px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  .trash-btn i {
+    font-size: 14px;
+  }
+}
+
+
+</style>
+{{-- button css end --}}
+
     </head>
+                        
 <body style="background-color:black;">
     <div class="d-flex justify-content-between align-items-center px-3 navbar-fixed-top">
 
@@ -228,7 +302,7 @@
     @endif
 
         
-        <div class="row g-3 m-0" style="gap:6px;" >
+        <div class="row g-3 m-2" style="gap:6px" >
             <!-- Product Card 1 -->
 
         @foreach($wish_list as $wslt)
@@ -246,26 +320,32 @@
                     @endphp
         
                     @if(!empty($images) && isset($images[0]))
-                        <img src="{{ $images[0] }}" class="card-img-top product-img" alt="Image" style="height:300px">
+                        <img src="{{ $images[0] }}" class="card-img-top product-img" alt="Image" style="height:200px">
                     @endif
                     
-                    <div class="rating-label position-absolute rating" style="font-size:10px; margin-top:200px;">
+                    {{-- <div class="rating-label position-absolute rating" style="font-size:10px; margin-top:200px;">
                        No reviews Yet
-                    </div>
+                    </div> --}}
                     
                     <div class="card-body">
-                        <div class="price-wishlist">
-                            
+                        <div class="title" style="font-weight: 600;margin-bottom:-20px">
+                            <p>LADIFY</p>
+                        </div>
+                        <div class="price-wishlist"  style="margin-bottom:-10px">
+      
                         <h6 class="card-title" title="{{ $wslt['name'] }}">
                             {{ strlen($wslt['name']) <= 16 ? $wslt['name'] : substr($wslt['name'], 0, 16) . '...' }}
                         </h6>
                         
                         
                         </div>
-                        
+                          {{-- <p class="card-text m-0">
+                            MRP Rs. <span class=" text-decoration-line-through"  style="text-decoration: line-through; color:red;font-size:11px">{{ $mrp }}</span> Rs. {{ $sellingPrice }}
+                            <span class="discount" style="color: green; font-weight: bold;font-size:11px;">{{ $discount }}% OFF</span><br>
+                        </p> --}}
                         <p class="card-text m-0">
-                            MRP Rs. <span class=" text-decoration-line-through">{{ $mrp }}</span> Rs. {{ $sellingPrice }}
-                            <span class="discount">{{ $discount }}% OFF</span><br>
+                             <span style="font-size:11px">₹{{ $sellingPrice }}</span> <span  style="text-decoration: line-through; color:red;font-size:11px;">Rs. {{ $mrp }}</span>
+                            <span class="discount" style="color: green; font-weight: bold;font-size:11px;">({{ $discount }}% OFF)</span><br>
                         </p>
                         
                         <!-- Size Dropdown (if required) -->
@@ -279,7 +359,7 @@
                         @endif
         
                         <!-- Add to Cart Button -->
-                        <a class="btn mt-2 move move addtobag" 
+                        {{-- <a class="btn mt-2 move move addtobag" 
                            style="flex: 0 0 57%;  background-color: var(--primary-color); color: black;" 
                            onclick="addToCart({{ json_encode($wslt) }})">
                            More to Cart
@@ -290,7 +370,64 @@
                          <form action="{{ route('wishlists.destroy', $wslt['wid']) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="dropdown-item delete mt-2" style="background-color:red; color:white; text-align:center; border-radius:5px;" >REMOVE</button>
+                                    <button type="submit" class="dropdown-item delete mt-2" style="background-color:rgb(253, 8, 8); color:white; text-align:center; border-radius:5px; padding:5px; font-weight:bold">
+    <i class="fas fa-trash-alt" style="margin-right: 5px;"></i> REMOVE
+</button> --}}
+
+{{-- 
+<div class="d-flex justify-content-center align-items-center gap-2 mt-2">
+    <a class="btn move addtobag d-flex justify-content-center align-items-center"
+       style="background-color: var(--primary-color); color: black; width: 100px; height: 40px;"
+       onclick="addToCart({{ json_encode($wslt) }})">
+        Move to Cart
+    </a>
+
+    <form action="{{ route('wishlists.destroy', $wslt['wid']) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn d-flex justify-content-center align-items-center"
+                style="background-color: rgb(233, 55, 55); color: white; border-radius: 5px; font-weight: bold; width: 50px; height: 40px;">
+            <i class="fas fa-trash-alt"></i>
+        </button>
+    </form>
+</div> --}}
+
+
+{{-- 
+<div class="d-flex justify-content-center align-items-center gap-2 mt-2 flex-nowrap">
+    <a class="btn move addtobag d-flex justify-content-center align-items-center text-nowrap"
+       style="background-color: var(--primary-color); color: black; width: 115px; height: 36px; font-size: 6px;"
+       onclick="addToCart({{ json_encode($wslt) }})">
+        Move to cart
+    </a>
+
+    <form action="{{ route('wishlists.destroy', $wslt['wid']) }}" method="POST" class="m-0 p-0">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn d-flex justify-content-center align-items-center"
+                style="background-color: rgb(233, 55, 55); color: white; border-radius: 5px; font-weight: bold; width: 40px; height: 36px;">
+            <i class="fas fa-trash-alt" style="font-size: 14px;"></i>
+        </button>
+    </form>
+</div> --}}
+
+<div class="d-flex justify-content-center align-items-center gap-2 mt-2 flex-nowrap">
+    <a class="btn move-addtobag-btn"
+       onclick="addToCart({{ json_encode($wslt) }})">
+        Move to cart
+    </a>
+
+    <form action="{{ route('wishlists.destroy', $wslt['wid']) }}" method="POST" class="m-0 p-0">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn trash-btn">
+            <i class="fas fa-trash-alt"></i>
+        </button>
+    </form>
+</div>
+
+
+                                    {{-- <button type="submit" class="dropdown-item delete mt-2" style="background-color:rgb(253, 8, 8); color:white; text-align:center; border-radius:5px; padding:5px; font-weight:bold" >REMOVE</button> --}}
                                 </form>
                     </div>
                 </div>
