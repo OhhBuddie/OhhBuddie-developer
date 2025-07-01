@@ -1,4 +1,6 @@
 <style>
+/* Mobile-first styles */
+<style>
 /* Mobile-first styles - show 2 cards with proper spacing */
 .product-category-container {
   display: flex;
@@ -63,7 +65,7 @@
   display: block;
 }
 </style>
-
+</style>
 
 <div class="sale-header">
   <div class="sale-title">TRENDINGS</div>
