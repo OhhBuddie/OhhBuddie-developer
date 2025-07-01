@@ -30,7 +30,7 @@
 
 <div class="Banner">
   <video autoplay muted loop playsinline>
-    <source src="{{ asset('public/assets/video/usp.mp4') }}" type="video/mp4">
+    <source src="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/Home/USP%20Banner/USP.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video> 
 </div>
