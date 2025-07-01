@@ -13,9 +13,9 @@
         href="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/LOGO%20ON%20THE%20ROCKS%20(1).png">
     <!-- Font Awesome for Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('/assets/css/mobile_marque.css') }}">
-    <link rel="stylesheet" href="{{ asset('/assets/css/mobile.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/css/mobile_marque.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/css/mobile.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <!-- Bootstrap's JS and CSS (you can use a CDN link) -->
@@ -673,7 +673,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg" style="margin-top: -5px;">
                 <!--<a class="navbar-brand" href="/">-->
-                <!--    <img src="{{ asset('/assets/images/logo/logo_showloom.png') }}" class="logoimg"-->
+                <!--    <img src="{{ asset('public/assets/images/logo/logo_showloom.png') }}" class="logoimg"-->
                 <!--        alt="Shoes">-->
                 <!--</a>-->
 
