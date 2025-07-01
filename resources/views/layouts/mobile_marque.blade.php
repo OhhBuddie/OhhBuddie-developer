@@ -632,12 +632,12 @@
             .pincodeDisplay .pincodeText {
                 font-size: 2px !important;
             }
-.logoimg{
-    width: 70px !important;
-    height: 70px !important;
-    margin-left:-65% !important;
-    margin-top: -25px !important;
-}
+            .logoimg{
+                width: 70px !important;
+                height: 70px !important;
+                margin-left:-65% !important;
+                margin-top: -25px !important;
+            }
             .bottom-navbar {
                 max-width: 350px;
                 margin: 0 auto;

@@ -3,6 +3,19 @@
     max-width: 350px;
     margin: 0 auto;
     }
+    /* Mobile-first approach */
+
+@media (max-width: 767px) {
+    .container{
+        max-width: 450px;
+    }
+      .product-item-card {
+    flex: 0 0 calc((350px - 42px) / 2); /* 350px - 42px (30px padding + 12px gap) ÷ 2 = 154px */
+    max-width: calc((350px - 42px) / 2);
+    min-width: calc((350px - 42px) / 2);
+    height: 100%;
+  }
+}
     @media (min-width: 768px) {
   .sale-header,
   .offers,
@@ -19,20 +32,19 @@
   }
 
   .product-item-card img {
-    width: 100%;
-    height: 150px; /* Fixed height for consistency */
-    object-fit: cover;
+    width: 100% ;
+    height: 190px ; /* Fixed height for consistency */
+    /* object-fit: fill; */
   }
 }
 
 .product-item-card img {
-  width: 90%;
+  width: 100% ;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 </style>
-  
   
   
   @php
