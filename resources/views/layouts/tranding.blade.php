@@ -65,7 +65,7 @@
   display: block;
 }
 </style>
-</style>
+
 
 <div class="sale-header">
   <div class="sale-title">TRENDINGS</div>
