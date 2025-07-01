@@ -32,7 +32,7 @@
     <div class="Banner">
         <a href="/category/{{ $encryptedCategories['Kurti'] }}" style="text-decoration:none;">
             <img src="https://slikk-dev-assets-public.s3.ap-south-1.amazonaws.com/other/69388cddd96a47dc865c18203d3dc493_Slikk%20App%20Creatives_Dresses_Female-32.png" alt="">
-            {{-- <img loading="lazy" <img loading="lazy" src="{{ asset('assets/images/compress/kurti.webp') }}" --}}
+            {{-- <img loading="lazy" <img loading="lazy" src="{{ asset('public/assets/images/compress/kurti.webp') }}" --}}
                 {{-- class="couponimg" alt="Coupon" style="height:16vh;"> --}}
         </a>
     </div>

@@ -1,5 +1,5 @@
-<style>
-/* Mobile-first styles */
+
+{{-- /* Mobile-first styles */ --}}
 <style>
 /* Mobile-first styles - show 2 cards with proper spacing */
 .product-category-container {
