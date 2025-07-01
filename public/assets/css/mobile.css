@@ -1,3 +1,6 @@
+
+
+
 @import url("https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap");
 
 /* Media queries for responsive design */
@@ -114,7 +117,7 @@
 .sale-title::after {
     content: 'FOR YOU';
     position: absolute;
-    bottom: -20px;
+    bottom: -2.5vh;
     left: 50%;
     transform: translateX(-50%);
     background: #FFD700;
@@ -122,15 +125,17 @@
     font-weight: bold;
     padding: 5px 20px;
     border-radius: 20px;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-size: 2rem;
+    white-space: nowrap; /* ensures single line */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
 }
+
 
 /* Trendings header section */
 .trendings-header {
     text-align: center;
     padding: 20px;
-    background: #53a8b6;
+    background: #071c21;
     position: relative;
 }
 
@@ -138,7 +143,7 @@
     font-size: 3rem;
     font-weight: 900;
     background: #000;
-    color: #155263;
+    color: #FFD700;
     display: inline-block;
     padding: 10px 30px;
     border-radius: 10px;
@@ -381,6 +386,7 @@ html {
     width: 100%;
     background: #fffbe6;
     padding: 10px 0;
+
 }
 
 .brand-track {
@@ -395,6 +401,7 @@ html {
     justify-content: center;
     align-items: center;
     padding: 5px;
+       
 }
 
 .brand-logo img {
@@ -429,6 +436,8 @@ html {
             background: white;
             border: 1px solid #ddd;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+       
+margin: 5px 0px 5px 0px;
         }
 
         .brand-logo {
@@ -464,3 +473,8 @@ html {
                 transform: translateX(-50%);
             }
         }
+
+        
+
+    
+
