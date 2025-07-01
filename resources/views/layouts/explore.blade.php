@@ -392,7 +392,7 @@
     <nav class="navbar navbar-expand-lg navbar-light" style="position:fixed; margin-top: -5px;">
 
         <!--<a class="navbar-brand" href="/">-->
-        <!--    <img src="{{ asset('public/assets/images/logo/logo_showloom.png') }}" class="logoimg" alt="OhhBuddie">-->
+        {{-- <!--    <img src="{{ asset('public/assets/images/logo/logo_showloom.png') }}" class="logoimg" alt="OhhBuddie">--> --}}
         <!--</a>-->
         
         <div class="d-flex " style="flex-direction: column; color: white; max-width:70vw;">
