@@ -4,6 +4,7 @@
 <title>OhhBuddie | Category</title>
 <link rel="icon" type="image/x-icon" href="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/Ohbuddielogo.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=480, initial-scale=1.0">
 <style>
 
     @media screen and (min-width: 500px) {
@@ -35,6 +36,36 @@
     margin: 0;
     padding: 0;
 }
+
+   @media screen and (min-width: 768px) {
+        .container{
+              max-width: 350px;
+              overflow-x: hidden;
+        }
+        /* .product-container{
+            max-width: 350px;
+        } */
+      
+       .imgdesk{
+             width: 11.5vw !important;
+            height: 15vw !important;
+        }
+        .tags{
+            bottom: 65px !important;
+        }
+    .fixed-bottom-navbar {
+    position: fixed;
+    bottom: 0;
+    margin-left: 7% !important;               
+    /* transform: translateX(30%); Shift it left by 50% of its width */
+    width: 360px;
+    background-color: rgb(7, 7, 7) !important;
+    z-index: 9999; /* Optional: Ensure it stays on top */
+    height: 6vh;
+    justify-content: center;
+    align-items: center;
+}
+    }
 </style>
    <style>
         /* Modal styles */
@@ -536,22 +567,20 @@
                                 
                                 <div class="d-flex" style="margin-top:-5px;font-size:12px;">
                                     <p class="card-text me-2 fw-bold"  style="font-size:12px;">₹ {{ $pdts->portal_updated_price }}</p>
-                                    <p class="card-text ml-2 fw-bold" style="text-decoration: line-through; color: #dbd8e3;font-size:12px;">₹ {{ $pdts->maximum_retail_price }}</p>
-                                    @php
-                                        $mrp = floatval($pdts->maximum_retail_price);
-                                        $price = floatval($pdts->portal_updated_price);
-                                        $discount = 0;
-                                    
-                                        if ($mrp > 0) {
-                                            $discount = round((($mrp - $price) / $mrp) * 100);
-                                        }
-                                    @endphp
-                                    
-                                    @if ($discount > 0)
-                                        <p class="card-text ms-2 text-success fw-bold" style="font-size:11px;">
-                                            ({{ $discount }}% OFF)
-                                        </p>
-                                    @endif
+                                    <p class="card-text ml-2 fw-bold" style="text-decoration: line-through; color: red;font-size:12px;">₹ {{ $pdts->maximum_retail_price }}</p>
+                                @php
+                                    $mrp = $pdts->maximum_retail_price;
+                                    $price = $pdts->portal_updated_price;
+                                    $discount = 0;
+                                
+                                    if ($mrp > 0) {
+                                        $discount = round((($mrp - $price) / $mrp) * 100);
+                                    }
+                                @endphp
+                                
+                                @if ($discount > 0)
+                                    <p class="card-text ms-2 text-success fw-bold" style="font-size:11px;">({{ $discount }}% OFF)</p>
+                                @endif
 
                                 </div>
                                 
@@ -590,31 +619,7 @@
         <div class="bottom-modal" id="sortModal">
             <div class="sort-header">SORT BY</div>
             
-            <!--<div class="sort-option">-->
-            <!--    <span>Popularity</span>-->
-            <!--    <input type="radio" name="sortOption" id="popularity" checked>-->
-            <!--</div>-->
-            
-            <!--<div class="sort-option">-->
-            <!--    <input type="radio" name="sortOption" id="latest">-->
-            <!--    <span>Latest</span>-->
-            <!--</div>-->
-            
-            <!--<div class="sort-option">-->
-            <!--    <input type="radio" name="sortOption" id="discount">-->
-            <!--    <span>Discount</span>-->
-            <!--</div>-->
-            
-            <!--<div class="sort-option">-->
-            <!--    <input type="radio" name="sortOption" id="priceHighToLow">-->
-            <!--    <span>Price: High to Low</span>-->
-            <!--</div>-->
-            
-            <!--<div class="sort-option">-->
-            <!--    <input type="radio" name="sortOption" id="priceLowToHigh">-->
-            <!--    <span>Price: Low to High</span>-->
-            <!--</div>-->
-            
+           
             <!-- HTML Form -->
             <form id="sortForm" method="GET" action="">
                 <div class="sort-option">
@@ -633,10 +638,7 @@
                 </div>
             </form>
             
-            <!--<div class="sort-option">-->
-            <!--    <span>Customer Rating</span>-->
-            <!--    <input type="radio" name="sortOption" id="customerRating">-->
-            <!--</div>-->
+          
         </div>
     
             
