@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('public/assets/css/responsive.css') }}">
+<link rel="stylesheet" href="{{ asset('public/assets/css/Responsive.css') }}">
   
   @php
         $userSeed = session()->getId() . time();
