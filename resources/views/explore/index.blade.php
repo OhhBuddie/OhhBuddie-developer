@@ -13,12 +13,14 @@
             background-color: black;
         }
 
-         #men{
+          #men{
         height: 90vh;
            }
-          
+            #women{
+       height: 100vh;
+           }
                #kids{
-       height: 80vh;
+       height: 0vh;
            }
                   #footwear{
        height: 50vh;
@@ -340,10 +342,10 @@
        height: 100vh;
            }
                #kids{
-       height: 70vh;
+       height: 60vh;
            }
                   #footwear{
-       height: 40vh;
+       height: 50vh;
            }
       
          
