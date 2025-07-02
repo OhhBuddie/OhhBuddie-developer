@@ -1,47 +1,32 @@
 <style>
-/* Mobile-first styles */
-<style>
-/* Mobile-first styles - show 2 cards with proper spacing */
-.product-category-container {
-  display: flex;
-  flex-direction: row;
-  overflow-x: auto;
-  gap: 12px;
-  padding: 0 15px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  max-width: 100vw;
-
-}
-
-.product-category-container::-webkit-scrollbar {
-  display: none;
-}
-
-.product-item-card {
-  flex: 0 0 calc(50% - 6px); /* 50% width minus half the gap for 2 cards */
-  scroll-snap-align: start;
-  max-width: calc(50% - 6px);
-
-}
-
-.sale-header,
-.offers {
-  max-width: 100%;
-     /* height: 150px;  */
-}
-
-/* Desktop styles - lock to 350px and show exactly 2 cards */
-@media (min-width: 768px) {
-  .offers{
- height: 40vh !important;
+@media screen and (min-width: 778px) {
+  .offers {
+    max-width: 350px;
+    height: 35vh !important;
+    position: relative;
+    overflow: hidden; /* ✅ Hides scrollbars and content overflow */
+    scroll-behavior: unset;
+    margin: 0;
+    padding: 0;
   }
+}
+@media (max-width: 767px) {
+    .container{
+        max-width: 450px;
+    }
+      .product-item-card {
+    flex: 0 0 calc((350px - 42px) / 2); /* 350px - 42px (30px padding + 12px gap) ÷ 2 = 154px */
+    max-width: calc((350px - 42px) / 2);
+    min-width: calc((350px - 42px) / 2);
+    height: 100%;
+  }
+}
+    @media (min-width: 768px) {
   .sale-header,
   .offers,
   .product-category-container {
     max-width: 350px;
     margin: 0 auto;
-   
   }
 
   .product-item-card {
@@ -52,27 +37,26 @@
   }
 
   .product-item-card img {
-    width: 100%;
-    height: 150px; /* Fixed height for consistency */
-    object-fit: cover;
+    width: 100% ;
+    height: 190px ; /* Fixed height for consistency */
+    /* object-fit: fill; */
   }
 }
 
 .product-item-card img {
-  width: 90%;
+  width: 100% ;
   height: 100%;
   object-fit: cover;
   display: block;
-}
-</style>
+} 
 </style>
 
 <div class="sale-header">
   <div class="sale-title">TRENDINGS</div>
 </div>
 
-<div class="offers" style="height:40.5vh padding-right: 0px; padding-left: 0px;">
-  <div class="tranding" style="padding: 0px 8px; margin: 0px;">
+<div class="offers">
+  <div class="tranding" >
     @php
       $newBrandIds = $newproducts->pluck('brand_id')->filter()->unique();
       $newCategoryIds = $newproducts->pluck('sub_subcategory_id')->filter()->unique();
@@ -95,16 +79,14 @@
           $discount = ($mrp > 0) ? round((($mrp - $price) / $mrp) * 100) : 0;
         @endphp
 
-        <div class="product-item-card mr-6">
+        <div class="product-item-card">
           <a href="/product/{{ \Illuminate\Support\Str::slug($category->sub_subcategory ?? 'unknown') }}/{{ \Illuminate\Support\Str::slug($brandName) }}/{{ \Illuminate\Support\Str::slug($nprdts->product_name) }}/{{ $nprdts->id }}/buy" style="text-decoration:none;">
             @if (!empty($images) && isset($images[0]))
               <div>
                 <img
                   loading="lazy"
-                  src="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/products/OBD-SLR-1011/OBD-PR-OBD-SLR-1011-1012/1.jpg"
-                  {{-- src="{{ $images[0] }}" --}}
-                  alt="Image"
-                  style="">
+                  {{-- src="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/products/OBD-SLR-1011/OBD-PR-OBD-SLR-1011-1012/1.jpg" --}}
+                  src="{{ $images[0] }}" alt="Image" style="object-fit:fill">
               </div>
             @endif
 
