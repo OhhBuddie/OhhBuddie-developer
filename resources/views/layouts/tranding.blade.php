@@ -9,8 +9,49 @@
     margin: 0;
     padding: 0;
   }
+  
 }
+.container {
+    max-width: 350px;
+    margin: 0 auto;
+    }
+    /* Mobile-first approach */
+
+@media (max-width: 767px) {
+    .container{
+        max-width: 450px;
+    }
+      .product-item-card {
+    flex: 0 0 calc((350px - 42px) / 2); /* 350px - 42px (30px padding + 12px gap) ÷ 2 = 154px */
+    max-width: calc((350px - 42px) / 2);
+    min-width: calc((350px - 42px) / 2);
+    height: 100%;
+  }
+}
+    @media (min-width: 768px) {
+  .sale-header,
+  .offers,
+  .product-category-container {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .product-item-card {
+    flex: 0 0 calc((350px - 42px) / 2); /* 350px - 42px (30px padding + 12px gap) ÷ 2 = 154px */
+    max-width: calc((350px - 42px) / 2);
+    min-width: calc((350px - 42px) / 2);
+    height: 100%;
+  }
+
+  .product-item-card img {
+    width: 100% ;
+    height: 190px ; /* Fixed height for consistency */
+    /* object-fit: fill; */
+  }
+}
+
 </style>
+
 
 <div class="sale-header">
   <div class="sale-title">TRENDINGS</div>
