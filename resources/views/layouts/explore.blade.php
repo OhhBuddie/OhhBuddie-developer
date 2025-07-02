@@ -11,7 +11,7 @@
      <link rel="icon" type="image/x-icon" href="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/Ohbuddielogo.png">
     <!-- Font Awesome for Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('public/assets/css/style.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}"> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <!-- Bootstrap's JS and CSS (you can use a CDN link) -->
@@ -79,14 +79,30 @@
                 margin-left: 30% !important;
             }
             .bottom-navbar{
-                left: 30% !important;
-                width: 40% !important;
+                left:38% !important;
+                width: 360px !important;
+            
+                background-color: rgb(0, 0, 0) !important;
+                margin: 0 auto;
+             
+            }
+                .bt a {
+                font-size: 12px !important;
+            }
+
+            .bt-img {
+                width: 20px !important;
+                height: 20px !important;
             }
             
-              .logoimg{
-                bottom: 1vh !important;
-                right: 17vw !important;
-            }
+       .logoimg{
+    width: 70px !important;
+    height: 70px !important;
+    margin-left:-65% !important;
+    margin-top: -25px !important;
+}
+            
+          
         }
         
         
@@ -170,7 +186,7 @@
             font-family: cursive;
 
         }
-
+ 
 
     </style>
            
@@ -379,9 +395,12 @@
       background-color: #f0f0f0 !important;
     }
     
+
+
+   
+
    
     </style>
-
 
 </head>
 
@@ -392,7 +411,7 @@
     <nav class="navbar navbar-expand-lg navbar-light" style="position:fixed; margin-top: -5px;">
 
         <!--<a class="navbar-brand" href="/">-->
-        <!--    <img src="{{ asset('public/assets/images/logo/logo_showloom.png') }}" class="logoimg" alt="OhhBuddie">-->
+        <!--    <img src="{{ asset('/assets/images/logo/logo_showloom.png') }}" class="logoimg" alt="OhhBuddie">-->
         <!--</a>-->
         
         <div class="d-flex " style="flex-direction: column; color: white; max-width:70vw;">
@@ -507,49 +526,60 @@
     
     <!--Bottom Nav Bar -->
 
-         <div class="bottom-navbar" style="height: 67px;">
-            
-            <div class="row align-items-center">
+    
+        <div class="bottom-navbar" style="height: 67px;">
+
+            <div class="row align-items-center bt">
                 <div class="col-1"></div>
-                <div class="col-2 text-center" >
-                    <a href="/" style="color: white !important;font-size: 14px;  display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none;">
-                        <!--<i class="fas fa-home"></i>--> 
-                        <img src="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/Home/ICONS/HOME.svg" style="width: 25px; height: 25px;">
+                <div class="col-2 text-center">
+                    <a href="/"
+                        style="color: white !important; font-size: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none;">
+                        <!--<i class="fas fa-home"></i>-->
+                        <img src="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/Home/ICONS/HOME.svg"
+                            class="bt-img" style="width: 25px; height: 25px;">
                         Home
                     </a>
                 </div>
                 <div class="col-2 text-center">
-                    <a href="/allproduct" style="color: white !important;font-size: 14px;  display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none;">
+                    <a href="/allproduct"
+                        style="color: white !important;font-size: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none;">
                         <!--<i class="fa fa-shopping-cart"></i> -->
-                        <img src="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/Home/ICONS/SHOP%20CART%20.svg" style="width: 25px; height: 25px;">
+                        <img src="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/Home/ICONS/SHOP%20CART%20.svg"
+                            class="bt-img" style="width: 25px; height: 25px;">
 
                         Shop
                     </a>
                 </div>
                 <div class="col-2 text-center">
-                       <img src="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/LOGO%20ON%20THE%20ROCKS%20(1).png" alt="Shoes" class="logoimg" style="height: 104px !important; width: 105px !important; margin-top: -40px;">
+                    <img src="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/LOGO%20ON%20THE%20ROCKS%20(1).png"
+                        alt="Shoes" class="logoimg"
+                        style="height: 104px ; width: 105px ; margin-top: -40px;">
 
                 </div>
                 <div class="col-2 text-center">
-                    <a href="/explore" style="color: white !important;font-size: 14px;  display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none;">
+                    <a href="/explore"
+                        style="color: white !important;font-size: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none;">
                         <!--<i class="fas fa-search"></i>-->
-                        <img src="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/Home/ICONS/APPLICATION.svg" style="width: 25px; height: 25px;">
+                        <img src="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/Home/ICONS/APPLICATION.svg"
+                            class="bt-img" style="width: 25px; height: 25px;">
                         Explore
                     </a>
                 </div>
                 <div class="col-2 text-center">
-                    <a href="{{ url('/account') }}" style="color: white !important;font-size: 14px;  display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none;">
+                    <a href="{{ url('/account') }}"
+                        style="color: white !important;font-size: 14px;  display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none;">
                         <!--<i class="fas fa-user"></i> -->
-                        <img src="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/Home/ICONS/USER.svg" style="width: 25px; height: 25px;">
+                        <img src="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/Home/ICONS/USER.svg"
+                            class="bt-img" style="width: 25px; height: 25px;">
 
-                        
+
                         Profile
                     </a>
                 </div>
                 <div class="col-1"></div>
             </div>
-           
-         
+
+
         </div>
 
 
@@ -824,6 +854,25 @@ $(document).ready(function() {
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=2681722928691492&ev=PageView&noscript=1"
     /></noscript>
+<script>
+window.addEventListener('load', function () {
+    // Clear hash in URL if any (like #women)
+    if (window.location.hash) {
+        history.replaceState(null, null, window.location.pathname);
+    }
+
+    // Scroll to the "men" section manually
+    const menSection = document.getElementById('men');
+    if (menSection) {
+        setTimeout(() => {
+            window.scrollTo({
+                top: menSection.offsetTop - 100, // adjust this offset as per your navbar
+                behavior: 'auto'
+            });
+        }, 50); // small delay to override browser auto-scroll
+    }
+});
+</script>
 
 </body>
 </html>

@@ -1,4 +1,5 @@
 
+
 .sliding {
 	display: flex;
 	width: 100%;
@@ -14,6 +15,9 @@
 	    height: 90px;
 		width: 100px;
 		padding: 0 10px;
+         transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform;
 	}
 .sliding:hover .item {
 	animation-play-state: paused;

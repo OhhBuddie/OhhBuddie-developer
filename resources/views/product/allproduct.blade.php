@@ -5,8 +5,8 @@
 <link rel="icon" type="image/x-icon" href="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/Ohbuddielogo.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="{{asset('/assets/css/allproduct.css') }}">
-<script src="{{ asset('assets/js/allproduct.js') }}" defer></script>
+<link rel="stylesheet" href="{{asset('public/assets/css/allproduct.css') }}">
+<script src="{{ asset('public/assets/js/allproduct.js') }}" defer></script>
     <div class="container" id="product-container" style="padding: 0; margin: 0; width: 100vw; max-width: 100%; margin-top: 96px;">
         <div  class="row m-0 product" >
             <!-- Product Card 1 -->

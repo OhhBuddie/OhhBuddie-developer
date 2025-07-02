@@ -1,6 +1,7 @@
 <style>
 @media screen and (min-width: 778px) {
   .offers {
+<<<<<<< HEAD
     max-width: 350px;
     height: 35vh !important;
     position: relative;
@@ -40,16 +41,30 @@
     width: 100% ;
     height: 190px ; /* Fixed height for consistency */
     /* object-fit: fill; */
+=======
+    max-width: 350px;
+    height: 35vh !important;
+    position: relative;
+    overflow: hidden; /* ✅ Hides scrollbars and content overflow */
+    scroll-behavior: unset;
+    margin: 0;
+    padding: 0;
+>>>>>>> bd609a9e0be000c562dd44edc7ccef322eb4c3c3
   }
+  
 }
 
+<<<<<<< HEAD
 .product-item-card img {
   width: 100% ;
   height: 100%;
   object-fit: cover;
   display: block;
 } 
+=======
+>>>>>>> bd609a9e0be000c562dd44edc7ccef322eb4c3c3
 </style>
+
 
 <div class="sale-header">
   <div class="sale-title">TRENDINGS</div>

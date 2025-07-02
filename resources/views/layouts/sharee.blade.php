@@ -23,7 +23,7 @@
         <a href="/category/{{ $encryptedCategories['Saree'] }}" style="text-decoration:none;">
                         <img src="https://slikk-dev-assets-public.s3.ap-south-1.amazonaws.com/other/ac74c59eef9044649a3340dcc09fa36f_Slikk%20App%20Creatives_Denim_Female-42.png" alt="">
 
-            {{-- <img loading="lazy" src="{{ asset('assets/images/compress/sharee.webp') }}" class="staticbanner" --}}
+            {{-- <img loading="lazy" src="{{ asset('public/assets/images/compress/sharee.webp') }}" class="staticbanner" --}}
                 {{-- alt="Coupon" style="height:16vh;"> --}}
         </a>
     </div>

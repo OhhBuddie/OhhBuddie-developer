@@ -72,3 +72,9 @@
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
+@media (min-width: 768px) {
+  body {
+    max-width: 250px;
+    margin: 0 auto; /* center horizontally */
+  }
+}

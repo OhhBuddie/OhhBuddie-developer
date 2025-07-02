@@ -1,0 +1,53 @@
+
+    .category-container {
+        display: flex;
+        overflow-x: auto;
+        padding: 8px 12px; /* reduced padding */
+        /* gap: 2px; smaller gap between cards */
+        scroll-snap-type: x mandatory;
+        height: 100%;
+        /* display: none; */
+    }
+
+    .category-card {
+        flex: 0 ;
+        width: 100px; /* smaller width */
+        height: 100%;
+        text-align: center;
+        scroll-snap-align: start;
+        gap: 0px;
+    }
+
+    .catimg {
+        width: 80px;
+        height: 100%;
+        display: block;
+        margin: 0 auto;
+        /* object-fit: fill; */
+         /* transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform; */
+    }
+
+    .cat-text {
+        margin-top: 4px;
+        font-size: 11px;
+        color: #ffffff;
+        font-weight: 500;
+    }
+
+    .category-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    @media (min-width: 1024px) {
+  body {
+    background-color: lightblue;
+     display: none;
+  }
+
+
+ 
+}
+
+   

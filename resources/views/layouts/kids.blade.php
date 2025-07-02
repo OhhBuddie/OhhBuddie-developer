@@ -25,7 +25,7 @@
         <a href="/category/{{ $encryptedCategories['Kids'] }}" style="text-decoration:none;">
                         <img src="https://slikk-dev-assets-public.s3.ap-south-1.amazonaws.com/other/ac74c59eef9044649a3340dcc09fa36f_Slikk%20App%20Creatives_Denim_Female-42.png" alt="">
 
-            {{-- <img loading="lazy" src="{{ asset('assets/images/compress/kids.webp') }}" class="couponimg" alt="Coupon" --}}
+            {{-- <img loading="lazy" src="{{ asset('public/assets/images/compress/kids.webp') }}" class="couponimg" alt="Coupon" --}}
                 {{-- style="height:16vh;"> --}}
         </a>
     </div>
@@ -204,7 +204,7 @@
  <div class="Banner">
         <a href="/category/{{ $encryptedCategories['Shoes'] }}" style="text-decoration:none;">
             <img src="https://slikk-dev-assets-public.s3.ap-south-1.amazonaws.com/other/b35686940f494c69acd483ca4e8b8ff8_W_50off%20Women.png" alt="">
-            {{-- <img loading="lazy" <img loading="lazy" src="{{ asset('assets/images/compress/shoe-banner.webp') }}" --}}
+            {{-- <img loading="lazy" <img loading="lazy" src="{{ asset('public/assets/images/compress/shoe-banner.webp') }}" --}}
                 {{-- class="couponimg" alt="Shoes"> --}}
         </a>
     </div>

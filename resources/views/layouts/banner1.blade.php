@@ -7,7 +7,7 @@
 
   .Banner {
     width: 100%;
-    max-width: 350px; /* Force mobile size */
+    max-width: 550px; /* Force mobile size */
     margin: 0 auto 1.5rem auto; /* Centered and spaced */
     padding: 0;
   }
@@ -20,6 +20,11 @@
     border-radius: 8px;
     object-fit: cover;
   }
+  @media (min-width: 768px) {
+    .Banner {
+      max-width: 350px; /* Lock to desktop size */
+    }
+  }
 </style>
 
 <h3 class="heading">Coupons For You</h3>
@@ -30,7 +35,7 @@
 
 <div class="Banner">
   <video autoplay muted loop playsinline>
-    <source src="{{ asset('assets/video/usp.mp4') }}" type="video/mp4">
+    <source src="https://pub-859cf3e1f0194751917386af714f48e5.r2.dev/Home/USP%20Banner/USP.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video> 
 </div>

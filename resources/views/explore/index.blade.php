@@ -13,6 +13,16 @@
             background-color: black;
         }
 
+         #men{
+        height: 90vh;
+           }
+          
+               #kids{
+       height: 80vh;
+           }
+                  #footwear{
+       height: 50vh;
+           }
         .sidebar {
 
             width: 108px;
@@ -96,7 +106,7 @@
 
         .product img {
             max-width: 100%;
-            height: auto;
+            /* height: auto; */
             /*margin-bottom: 10px;*/
             border-radius: 5px;
             transition: transform 0.2s;
@@ -181,7 +191,7 @@
             width: 100%;
             margin-top: 10px;
             opacity: 0;
-            max-height: 0;
+            max-height: 100%;
             overflow: hidden;
             transition: opacity 0.3s ease, max-height 0.3s ease;
         }
@@ -190,7 +200,7 @@
         .extra-products.showw {
             display: grid;
             opacity: 1;
-            max-height: 500px;
+            /* max-height: 500px; */
             /* Adjust this based on your content */
         }
 
@@ -201,20 +211,7 @@
         }
 
         /* Responsive: 3 products per row */
-  
-            #men{
-                height: 80vh !important;
-            }
-            #women{
-                height: 80vh !important;
-            }
-            #kids{
-                height: 80vh !important;
-            }
-            #footwear{
-                height: 70vh !important;
-                margin-bottom: 10%;
-            }
+
   .containerr {
 
     flex-direction: row;
@@ -279,11 +276,25 @@
               margin-top: 10%;
 
             }
-        
+        .sidebar{
+            width: 85px !important;
+        }
             .products{
                 max-width: 750px;
                 /* background-color: yellow; */
             }
+        .product img {
+            max-width: 80%;
+            height: auto;
+            /*margin-bottom: 10px;*/
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+            .product p {
+        /*margin: 5px 0;*/
+        font-size: 11px !important;
+        color: white;
+    }
             .product-wrapper h4{
                 font-size: 12px !important;
             }
@@ -293,20 +304,9 @@
             } */
             .extra-products {
                 grid-template-columns: repeat(2, 1fr);
+                /* max-height: auto !important; */
             }
-            #men{
-                height: 550px !important;
-            }
-              #women{
-                height: 550px !important;
-            }
-              #kids{
-                height: 530px !important;
-            }
-              #footwear{
-                height: 400px !important;
-               
-            }
+          
 
             .navbar {
                 max-width: 350px;
@@ -315,13 +315,13 @@
 
             }
            .nav-text{
-             font-size: 10px;
+             font-size: 6px !important;
                  }
               .nav-text h4{
-                font-size: 16px !important;
+                font-size: 14px !important;
             }
                .nav-text h2{
-                font-size: 18px !important;
+                font-size: 14px !important;
             }
 
             .search-icon__wrapper img {
@@ -333,8 +333,19 @@
                 font-size: 2px !important;
             }
 
-          
-          
+           #men{
+        height: 90vh;
+           }
+            #women{
+       height: 100vh;
+           }
+               #kids{
+       height: 70vh;
+           }
+                  #footwear{
+       height: 40vh;
+           }
+      
          
         }
   

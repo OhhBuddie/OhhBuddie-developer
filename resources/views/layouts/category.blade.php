@@ -486,7 +486,7 @@
     <nav class="navbar navbar-expand-lg navbar-light" style="position:fixed; margin-top: -5px;">
 
         <!--<a class="navbar-brand" href="/">-->
-        <!--    <img src="{{ asset('public/assets/images/logo/logo_showloom.png') }}" class="logoimg" alt="OhhBuddie">-->
+        {{-- <!--    <img src="{{ asset('public/assets/images/logo/logo_showloom.png') }}" class="logoimg" alt="OhhBuddie">--> --}}
         <!--</a>-->
           <!-- Back Button -->
         <a href="javascript:history.back();" style="font-size: 17px; margin-right: 12px; color: white;">
