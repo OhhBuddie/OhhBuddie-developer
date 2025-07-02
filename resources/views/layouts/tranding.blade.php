@@ -39,7 +39,7 @@
 
   .product-item-card img {
     width: 99% ;
-    height: 190px ; /* Fixed height for consistency */
+    /* height: 150px ; Fixed height for consistency */
     /* object-fit: fill; */
 =======
     max-width: 350px;

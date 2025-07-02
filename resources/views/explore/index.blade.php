@@ -9,7 +9,7 @@
             display: flex;
             height: 89vh;
             width: 100vw;
-            margin-top: 94px;
+            /* margin-top: 94px; */
             background-color: black;
         }
 
